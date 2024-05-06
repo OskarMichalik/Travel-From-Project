@@ -1,0 +1,27 @@
+.inputDate {
+  width: 25%;
+  position: relative;
+}
+.input {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px;
+  padding: 5px;
+  width: 90%;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.cities p {
+  color: black;
+}
+.blockInput {
+  display: flex;
+  flex-direction: row;
+}

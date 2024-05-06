@@ -1,0 +1,29 @@
+.banner {
+  width: 100%;
+  height: 500px;
+  background-color: #028878;
+}
+.bannerContent {
+  width: max(800px, 60vw);
+  margin: 0 auto;
+  height: 80%;
+  margin-top: 50px;
+}
+.flightForm {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 15px;
+  height: 150px;
+  padding: 10px;
+  padding-top: 25px;
+  gap: 4px;
+}
+.pathDateInfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}

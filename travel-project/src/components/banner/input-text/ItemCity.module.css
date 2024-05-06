@@ -1,0 +1,53 @@
+.itemCity {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1px;
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.itemCity:hover {
+  background-color: #e7e7e7;
+  cursor: pointer;
+}
+.cityName {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+}
+.plusIcon {
+  height: 30px;
+  width: 30px;
+  background-color: #e7fff7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 16;
+}
+.plusIcon svg {
+  width: 15px;
+  height: 15px;
+}
+.minusIcon {
+  height: 30px;
+  width: 30px;
+  background-color: #c9f3ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 16;
+}
+.minusIcon svg {
+  width: 15px;
+  height: 15px;
+}

@@ -1,0 +1,36 @@
+.passengers {
+  width: 180px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.passengers svg {
+  height: 25px;
+}
+.passengers:hover {
+  background-color: #e7e7e7;
+  transition: all 0.2s ease-in-out;
+}
+.baggage {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.baggage svg {
+  height: 25px;
+}
+.baggage:hover {
+  background-color: #e7e7e7;
+  transition: all 0.2s ease-in-out;
+}
+.vl {
+  border-left: 1px solid #d6d6d6;
+  height: 90%;
+}

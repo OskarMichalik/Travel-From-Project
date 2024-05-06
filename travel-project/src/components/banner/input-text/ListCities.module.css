@@ -1,0 +1,8 @@
+.listCities {
+  display: flex;
+  flex-direction: column;
+}
+.listCities span {
+  padding-left: 25px;
+  padding-top: 25px;
+}
