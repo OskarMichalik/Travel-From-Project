@@ -16,7 +16,7 @@
   border-radius: 5px;
   width: 100%;
   margin-top: 15px;
-  height: 150px;
+  height: 200px;
   padding: 10px;
   padding-top: 25px;
   gap: 4px;
@@ -26,4 +26,19 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+}
+@media only screen and (max-width: 800px) {
+  .banner {
+    height: 600px;
+  }
+  .bannerContent {
+    width: 100%;
+  }
+  .flightForm {
+    height: 350px;
+  }
+  .pathDateInfo {
+    flex-direction: column;
+    gap: 5px;
+  }
 }

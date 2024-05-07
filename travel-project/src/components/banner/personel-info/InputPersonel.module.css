@@ -7,6 +7,9 @@
   gap: 5px;
   padding-left: 15px;
   padding-right: 15px;
+  position: relative;
+  z-index: 9;
+  width: 350px;
 }
 .modal {
   width: 350px;

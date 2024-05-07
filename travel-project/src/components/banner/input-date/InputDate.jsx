@@ -4,11 +4,11 @@ import ButtonInputDate from "./ButtonInputDate";
 import Modal from "../Modal";
 import ListDate from "./ListDate";
 import { TravelInfoContext } from "../../../store/travelInfoContext";
+import { AnimatePresence } from "framer-motion";
 
 export default function InputDate({ departure }) {
-  const { departureInfo, returnInfo, changeDepartureInfo, changeReturnInfo } =
+  const { departureInfo, changeDepartureInfo, changeReturnInfo } =
     useContext(TravelInfoContext);
-  const [isActive, setIsActive] = useState();
   const [isEdited, setIsEdited] = useState(false);
   const [value, onChange] = useState(new Date());
 
@@ -17,11 +17,20 @@ export default function InputDate({ departure }) {
   const year = value.getFullYear();
   const date = day + "/" + month + "/" + year;
 
+  const { whichIsVisible, changeWhichIsVisible } =
+    useContext(TravelInfoContext);
+
+  let whichNeedsToBeVisible = departure ? "departure" : "return";
+
   function handleClick() {
-    setIsActive(true);
+    if (departure) {
+      changeWhichIsVisible("departure");
+    } else {
+      changeWhichIsVisible("return");
+    }
   }
   function handleClose() {
-    setIsActive(false);
+    changeWhichIsVisible("");
   }
   function handleChange(value) {
     onChange(value);
@@ -36,25 +45,27 @@ export default function InputDate({ departure }) {
 
   return (
     <div className={classes.inputDate}>
-      {isActive && (
-        <Modal onClose={handleClose} modalDate>
-          <div className={classes.modal}>
-            <ButtonInputDate
-              departure={departure}
-              value={date}
-              isEdited={isEdited}
-            />
-            <div className={classes.cities}>
-              <ListDate
-                value={value}
-                onChange={handleChange}
-                minValue={departureInfo}
+      <AnimatePresence>
+        {whichIsVisible === whichNeedsToBeVisible && (
+          <Modal onClose={handleClose} modalDate>
+            <div className={classes.modal}>
+              <ButtonInputDate
                 departure={departure}
+                value={date}
+                isEdited={isEdited}
               />
+              <div className={classes.cities}>
+                <ListDate
+                  value={value}
+                  onChange={handleChange}
+                  minValue={departureInfo}
+                  departure={departure}
+                />
+              </div>
             </div>
-          </div>
-        </Modal>
-      )}
+          </Modal>
+        )}
+      </AnimatePresence>
       <ButtonInputDate
         handleClick={handleClick}
         departure={departure}

@@ -12,7 +12,7 @@
   top: -25px;
   width: max(100%, 280px);
   height: 25rem;
-  z-index: 9;
+  z-index: 10;
   border-radius: 5px;
   box-shadow: 0 0 5px 1px #80808080;
 }
@@ -22,7 +22,7 @@
   top: -25px;
   width: max(100%, 320px);
   height: 25rem;
-  z-index: 9;
+  z-index: 10;
   border-radius: 5px;
   box-shadow: 0 0 5px 1px #80808080;
 }
@@ -31,8 +31,8 @@
   padding-top: 25px;
   top: -25px;
   width: 350px;
-  height: 25rem;
-  z-index: 9;
+  height: 17rem;
+  z-index: 10;
   border-radius: 5px;
   box-shadow: 0 0 5px 1px #80808080;
 }

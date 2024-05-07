@@ -1,0 +1,30 @@
+.submitButtonDiv {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.button {
+  margin-right: 25px;
+  margin-top: 5px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: #028878;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  z-index: 9;
+}
+.button:hover {
+  background-color: #00a991;
+}
+.disabled {
+  margin-right: 25px;
+  margin-top: 5px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: #a6c5c0;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  z-index: 9;
+}

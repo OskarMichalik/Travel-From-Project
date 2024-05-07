@@ -6,6 +6,16 @@ export const TravelInfoContext = createContext({
   departureInfo: "",
   returnInfo: "",
   whichIsVisible: "",
+  passengers: {
+    adults: 1,
+    children: 0,
+    infants: 0,
+    total: 1,
+  },
+  baggage: {
+    medium: 0,
+    small: 0,
+  },
   addFromTravelInfo: () => {},
   addToTravelInfo: () => {},
   removeFromTravelInfo: () => {},
@@ -13,6 +23,8 @@ export const TravelInfoContext = createContext({
   changeDepartureInfo: () => {},
   changeReturnInfo: () => {},
   changeWhichIsVisible: () => {},
+  changePassengerNumber: () => {},
+  changeBaggageNumber: () => {},
 });
 
 function travelInfoReducer(state, action) {
@@ -62,7 +74,71 @@ function travelInfoReducer(state, action) {
       returnInfo: action.payload,
     };
   }
-
+  if (action.type === "CHANGE_WHICH_IS_VISIBLE") {
+    return {
+      ...state,
+      whichIsVisible: action.payload,
+    };
+  }
+  if (action.type === "CHANGE_PASSENGER_NUMBER") {
+    if (action.payload.category === "adults") {
+      const updatedPassengerNumber =
+        state.passengers.adults + action.payload.number;
+      return {
+        ...state,
+        passengers: {
+          ...state.passengers,
+          adults: updatedPassengerNumber,
+          total: state.passengers.total + action.payload.number,
+        },
+      };
+    } else if (action.payload.category === "children") {
+      const updatedPassengerNumber =
+        state.passengers.children + action.payload.number;
+      return {
+        ...state,
+        passengers: {
+          ...state.passengers,
+          children: updatedPassengerNumber,
+          total: state.passengers.total + action.payload.number,
+        },
+      };
+    } else if (action.payload.category === "infants") {
+      const updatedPassengerNumber =
+        state.passengers.infants + action.payload.number;
+      return {
+        ...state,
+        passengers: {
+          ...state.passengers,
+          infants: updatedPassengerNumber,
+          total: state.passengers.total + action.payload.number,
+        },
+      };
+    }
+    return state;
+  }
+  if (action.type === "CHANGE_BAGGAGE_NUMBER") {
+    if (action.payload.category === "medium") {
+      const updatedBaggageNumber = state.baggage.medium + action.payload.number;
+      return {
+        ...state,
+        baggage: {
+          ...state.baggage,
+          medium: updatedBaggageNumber,
+        },
+      };
+    } else if (action.payload.category === "small") {
+      const updatedBaggageNumber = state.baggage.small + action.payload.number;
+      return {
+        ...state,
+        baggage: {
+          ...state.baggage,
+          small: updatedBaggageNumber,
+        },
+      };
+    }
+    return state;
+  }
   return state;
 }
 
@@ -72,6 +148,17 @@ export default function TravelInfoContextProvider({ children }) {
     toInfo: [],
     departureInfo: "",
     returnInfo: "",
+    whichIsVisible: "",
+    passengers: {
+      adults: 1,
+      children: 0,
+      infants: 0,
+      total: 1,
+    },
+    baggage: {
+      small: 0,
+      medium: 0,
+    },
   });
 
   function handleAddFromTravelInfo(city) {
@@ -114,18 +201,42 @@ export default function TravelInfoContextProvider({ children }) {
       payload: date,
     });
   }
+  function handleChangeWhichIsVisible(name) {
+    travelInfoDispatch({
+      type: "CHANGE_WHICH_IS_VISIBLE",
+      payload: name,
+    });
+  }
+  function handleChangePassengerNumber(category, number) {
+    travelInfoDispatch({
+      type: "CHANGE_PASSENGER_NUMBER",
+      payload: { category, number },
+    });
+  }
+  function handleChangeBaggageNumber(category, number) {
+    travelInfoDispatch({
+      type: "CHANGE_BAGGAGE_NUMBER",
+      payload: { category, number },
+    });
+  }
 
   const ctxValue = {
     fromInfo: travelInfoState.fromInfo,
     toInfo: travelInfoState.toInfo,
     departureInfo: travelInfoState.departureInfo,
     returnInfo: travelInfoState.returnInfo,
+    whichIsVisible: travelInfoState.whichIsVisible,
+    passengers: travelInfoState.passengers,
+    baggage: travelInfoState.baggage,
     addFromTravelInfo: handleAddFromTravelInfo,
     addToTravelInfo: handleAddToTravelInfo,
     removeFromTravelInfo: handleRemoveFromTravelInfo,
     removeToTravelInfo: handleRemoveToTravelInfo,
     changeDepartureInfo: handleChangeDepartureTravelInfo,
     changeReturnInfo: handleChangeReturnTravelInfo,
+    changeWhichIsVisible: handleChangeWhichIsVisible,
+    changePassengerNumber: handleChangePassengerNumber,
+    changeBaggageNumber: handleChangeBaggageNumber,
   };
 
   return (

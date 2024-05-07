@@ -1,0 +1,72 @@
+.modalPersonelContent {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.modalPersonelContent svg {
+  width: 16px;
+  height: 16px;
+}
+.passengers {
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  font-weight: 500;
+}
+.passengersContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.labelContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.labelContentText {
+  margin-left: 5px;
+}
+.labelContentText span {
+  color: grey;
+}
+.iconsContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.iconsContent svg {
+  width: 20px;
+  height: 20px;
+  color: grey;
+  transition: all 0.1s ease-in-out;
+}
+.plusIcon,
+.minusIcon {
+  height: 20px;
+  background-color: #e7e7e7;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 8px;
+  margin-right: 8px;
+  transition: all 0.1s ease-in-out;
+}
+.minusIconDisabled {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.plusIcon:hover,
+.minusIcon:hover {
+  background-color: #0172cb;
+  transition: all 0.1s ease-in-out;
+}
+.plusIcon:hover svg,
+.minusIcon:hover svg {
+  color: white;
+  transition: all 0.1s ease-in-out;
+}

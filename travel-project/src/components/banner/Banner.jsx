@@ -3,6 +3,7 @@ import BannerHeader from "./BannerHeader";
 import InputText from "./input-text/InputText";
 import InputDate from "./input-date/InputDate";
 import InputPersonel from "./personel-info/InputPersonel";
+import SubmitButton from "./submit-button/SubmitButton";
 
 export default function Banner() {
   return (
@@ -17,6 +18,7 @@ export default function Banner() {
             <InputDate departure />
             <InputDate />
           </div>
+          <SubmitButton />
         </div>
       </div>
     </div>

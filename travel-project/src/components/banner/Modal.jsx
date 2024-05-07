@@ -1,4 +1,5 @@
 import classes from "./Modal.module.css";
+import { motion } from "framer-motion";
 
 export default function Modal({
   children,
@@ -9,7 +10,7 @@ export default function Modal({
   return (
     <div>
       <div className={classes.backdrop} onClick={onClose} />
-      <dialog
+      <motion.dialog
         open
         className={
           modalDate
@@ -18,9 +19,12 @@ export default function Modal({
             ? classes.modalPassengers
             : classes.modal
         }
+        initial={{ scale: 0.1, opacity: 1 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.1, opacity: 0 }}
       >
         {children}
-      </dialog>
+      </motion.dialog>
     </div>
   );
 }

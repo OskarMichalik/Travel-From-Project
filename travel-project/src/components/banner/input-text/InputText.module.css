@@ -13,6 +13,8 @@
   width: 90%;
   overflow: hidden;
   scroll-behavior: smooth;
+  position: relative;
+  z-index: 9;
 }
 .spanText {
   color: #808080;
@@ -37,4 +39,9 @@
 .content {
   display: flex;
   flex-direction: row;
+}
+@media only screen and (max-width: 800px) {
+  .inputText {
+    width: 100%;
+  }
 }
