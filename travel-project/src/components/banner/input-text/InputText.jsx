@@ -1,10 +1,11 @@
 import { useContext, useRef, useState } from "react";
 import classes from "./InputText.module.css";
-import Modal from "../Modal";
-import ListCities from "./ListCities";
 import ListCityBlocks from "./ListCityBlocks";
 import { TravelInfoContext } from "../../../store/travelInfoContext";
 import { AnimatePresence } from "framer-motion";
+import InputTextModal from "./modal/InputTextModal";
+
+// Renders a button and modal. The 'from' prop decides if it's a button that changes 'fromInfo' (true) or 'toInfo' (false)
 
 export default function InputText({ from }) {
   const [searchValue, setSearchValue] = useState("");
@@ -38,33 +39,14 @@ export default function InputText({ from }) {
     <div className={classes.inputText}>
       <AnimatePresence>
         {whichIsVisible === whichNeedsToBeVisible && (
-          <Modal onClose={handleClose}>
-            <div className={classes.modal}>
-              <div className={classes.input}>
-                <div className={classes.spanText}>{from ? "From" : "To"}</div>
-                <div className={classes.content}>
-                  <ListCityBlocks from={from ? true : false} />
-                  <input
-                    placeholder="City, airport or place"
-                    maxLength="120"
-                    className={classes.inputActive}
-                    onChange={handleInputChange}
-                    value={searchValue}
-                    ref={inputRef}
-                  />
-                </div>
-              </div>
-              <div className={classes.cities}>
-                <ListCities
-                  searchValue={searchValue}
-                  from={from ? true : false}
-                  itemCityOnClose={handleClose}
-                  inputRef={inputRef}
-                  itemCitySetSearchValue={setSearchValue}
-                />
-              </div>
-            </div>
-          </Modal>
+          <InputTextModal
+            handleClose={handleClose}
+            handleInputChange={handleInputChange}
+            from={from}
+            searchValue={searchValue}
+            listCitiesSetSearchValue={setSearchValue}
+            inputRef={inputRef}
+          />
         )}
       </AnimatePresence>
       <div className={classes.input} onClick={handleClick}>

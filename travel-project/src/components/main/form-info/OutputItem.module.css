@@ -1,0 +1,24 @@
+.outputItemGreen {
+  padding: 5px;
+  background-color: #00a991;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-wrap: nowrap;
+}
+.outputItemOrange {
+  padding: 5px;
+  background-color: #f9971e;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-wrap: nowrap;
+}

@@ -1,5 +1,7 @@
 import classes from "./ButtonInputDate.module.css";
 
+// Renders the button
+
 export default function ButtonInputDate({
   handleClick,
   departure,

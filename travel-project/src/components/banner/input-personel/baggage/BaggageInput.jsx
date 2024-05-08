@@ -1,5 +1,7 @@
 import classes from "./BaggageInput.module.css";
 
+// Renders the baggage part of the form
+
 export default function BaggageInput({
   baggage,
   handleChangeBaggageNumber,

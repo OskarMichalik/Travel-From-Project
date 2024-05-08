@@ -16,6 +16,7 @@ export const TravelInfoContext = createContext({
     medium: 0,
     small: 0,
   },
+  mockSearchClicked: false,
   addFromTravelInfo: () => {},
   addToTravelInfo: () => {},
   removeFromTravelInfo: () => {},
@@ -25,6 +26,7 @@ export const TravelInfoContext = createContext({
   changeWhichIsVisible: () => {},
   changePassengerNumber: () => {},
   changeBaggageNumber: () => {},
+  mockChangeSearchClicked: () => {},
 });
 
 function travelInfoReducer(state, action) {
@@ -139,6 +141,12 @@ function travelInfoReducer(state, action) {
     }
     return state;
   }
+  if (action.type === "MOCK_CHANGE_SEARCH_CLICKED") {
+    return {
+      ...state,
+      mockSearchClicked: true,
+    };
+  }
   return state;
 }
 
@@ -159,6 +167,7 @@ export default function TravelInfoContextProvider({ children }) {
       small: 0,
       medium: 0,
     },
+    mockSearchClicked: false,
   });
 
   function handleAddFromTravelInfo(city) {
@@ -219,6 +228,12 @@ export default function TravelInfoContextProvider({ children }) {
       payload: { category, number },
     });
   }
+  function mockHandleChangeSearchClicked() {
+    // MOCK
+    travelInfoDispatch({
+      type: "MOCK_CHANGE_SEARCH_CLICKED",
+    });
+  }
 
   const ctxValue = {
     fromInfo: travelInfoState.fromInfo,
@@ -228,6 +243,7 @@ export default function TravelInfoContextProvider({ children }) {
     whichIsVisible: travelInfoState.whichIsVisible,
     passengers: travelInfoState.passengers,
     baggage: travelInfoState.baggage,
+    mockSearchClicked: travelInfoState.mockSearchClicked,
     addFromTravelInfo: handleAddFromTravelInfo,
     addToTravelInfo: handleAddToTravelInfo,
     removeFromTravelInfo: handleRemoveFromTravelInfo,
@@ -237,6 +253,7 @@ export default function TravelInfoContextProvider({ children }) {
     changeWhichIsVisible: handleChangeWhichIsVisible,
     changePassengerNumber: handleChangePassengerNumber,
     changeBaggageNumber: handleChangeBaggageNumber,
+    mockChangeSearchClicked: mockHandleChangeSearchClicked,
   };
 
   return (

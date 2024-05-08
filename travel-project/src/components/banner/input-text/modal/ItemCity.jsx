@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import classes from "./ItemCity.module.css";
-import { TravelInfoContext } from "../../../store/travelInfoContext";
+import { TravelInfoContext } from "../../../../store/travelInfoContext";
+
+// Renders single city
 
 export default function ItemCity({
   city,
@@ -29,14 +31,12 @@ export default function ItemCity({
     event.stopPropagation();
     if (from) {
       addFromTravelInfo(city);
-      //inputRef.current.value = "";
       setSearchValue("");
       setTimeout(() => {
         inputRef.current.focus();
       }, 10);
     } else {
       addToTravelInfo(city);
-      //inputRef.current.value = "";
       setSearchValue("");
       setTimeout(() => {
         inputRef.current.focus();

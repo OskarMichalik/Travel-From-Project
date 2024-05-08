@@ -3,10 +3,13 @@ import classes from "./InputPersonel.module.css";
 import InputPersonelButton from "./InputPersonelButton";
 import { useContext } from "react";
 import { TravelInfoContext } from "../../../store/travelInfoContext";
-import ModalPersonelContent from "./ModalPersonelContent";
 import { AnimatePresence } from "framer-motion";
+import { memo } from "react";
+import ModalPersonelPassengersContent from "./ModalPersonelPassengersContent";
 
-export default function InputPersonel() {
+// Renders buttons and modal
+
+const InputPersonel = memo(function InputPersonel() {
   const { whichIsVisible, changeWhichIsVisible } =
     useContext(TravelInfoContext);
 
@@ -23,7 +26,7 @@ export default function InputPersonel() {
         {whichIsVisible === "personel" && (
           <div className={classes.modal}>
             <Modal modalPassengers onClose={handleClose}>
-              <ModalPersonelContent />
+              <ModalPersonelPassengersContent />
             </Modal>
           </div>
         )}
@@ -33,4 +36,6 @@ export default function InputPersonel() {
       </div>
     </div>
   );
-}
+});
+
+export default InputPersonel;

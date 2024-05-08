@@ -6,11 +6,12 @@
 .button {
   margin-right: 25px;
   margin-top: 5px;
-  padding: 5px 15px;
+  padding: 10px 20px;
   border-radius: 5px;
   background-color: #028878;
   color: white;
   font-weight: 500;
+  font-size: 21px;
   position: relative;
   z-index: 9;
 }
@@ -20,11 +21,12 @@
 .disabled {
   margin-right: 25px;
   margin-top: 5px;
-  padding: 5px 15px;
+  padding: 10px 20px;
   border-radius: 5px;
   background-color: #a6c5c0;
   color: white;
   font-weight: 500;
+  font-size: 21px;
   position: relative;
   z-index: 9;
 }

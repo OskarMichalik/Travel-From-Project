@@ -1,8 +1,0 @@
-.passengers {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.label {
-  font-weight: 500;
-}

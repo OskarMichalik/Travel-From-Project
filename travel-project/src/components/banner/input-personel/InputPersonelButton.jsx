@@ -5,6 +5,8 @@ import { TravelInfoContext } from "../../../store/travelInfoContext";
 export default function InputPersonelButton({ handleClick }) {
   const { passengers, baggage } = useContext(TravelInfoContext);
 
+  // Renders both the passengers button and the baggage button
+
   return (
     <>
       <div className={classes.passengers} onClick={handleClick}>

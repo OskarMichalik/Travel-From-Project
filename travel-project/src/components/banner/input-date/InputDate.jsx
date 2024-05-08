@@ -5,8 +5,11 @@ import Modal from "../Modal";
 import ListDate from "./ListDate";
 import { TravelInfoContext } from "../../../store/travelInfoContext";
 import { AnimatePresence } from "framer-motion";
+import { memo } from "react";
 
-export default function InputDate({ departure }) {
+// Renders the button and modal. The 'departure' prop decides if it's a button that changes 'departureInfo' (true) or 'returnInfo' (false)
+
+const InputDate = memo(function InputDate({ departure }) {
   const { departureInfo, changeDepartureInfo, changeReturnInfo } =
     useContext(TravelInfoContext);
   const [isEdited, setIsEdited] = useState(false);
@@ -74,4 +77,6 @@ export default function InputDate({ departure }) {
       />
     </div>
   );
-}
+});
+
+export default InputDate;

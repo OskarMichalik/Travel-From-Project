@@ -1,8 +1,8 @@
 import classes from "./Banner.module.css";
-import BannerHeader from "./BannerHeader";
+import BannerHeader from "./banner-header/BannerHeader";
 import InputText from "./input-text/InputText";
 import InputDate from "./input-date/InputDate";
-import InputPersonel from "./personel-info/InputPersonel";
+import InputPersonel from "./input-personel/InputPersonel";
 import SubmitButton from "./submit-button/SubmitButton";
 
 export default function Banner() {

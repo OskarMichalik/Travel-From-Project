@@ -1,5 +1,7 @@
 import classes from "./PassengersInput.module.css";
 
+// Renders the passangers part of the form
+
 export default function PassengersInput({
   passengers,
   handleChangePassengersNumber,

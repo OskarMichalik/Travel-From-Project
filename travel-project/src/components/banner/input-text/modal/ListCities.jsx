@@ -1,8 +1,10 @@
 import classes from "./ListCities.module.css";
-import CITIES from "../../../store/cities";
+import CITIES from "../../../../store/cities";
 import ItemCity from "./ItemCity";
-import { sortPlacesByDistance } from "../../../util/locationFn";
-import { useFetch } from "../../../hooks/useFetch";
+import { sortPlacesByDistance } from "../../../../util/locationFn";
+import { useFetch } from "../../../../hooks/useFetch";
+
+// Lists cities that the user can add to 'fromInfo' or 'toInfo' depending on a 'from' prop
 
 async function fetchSortedPlaces() {
   const places = CITIES;

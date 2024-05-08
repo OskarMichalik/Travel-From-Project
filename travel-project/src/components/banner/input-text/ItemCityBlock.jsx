@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { TravelInfoContext } from "../../../store/travelInfoContext";
 import classes from "./ItemCityBlock.module.css";
 
+// renders single block with the name
+
 export default function ItemCityBlock({ city, from }) {
   const { removeFromTravelInfo, removeToTravelInfo } =
     useContext(TravelInfoContext);
