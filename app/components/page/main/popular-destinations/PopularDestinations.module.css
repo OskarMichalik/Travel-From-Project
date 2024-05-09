@@ -1,0 +1,22 @@
+.popularDestinations {
+  width: 75%;
+  margin: 0 auto;
+}
+.popularDestinations h1 {
+  font-size: 30px;
+}
+.popularDestinations p {
+  font-size: 18px;
+  color: grey;
+}
+
+@media only screen and (max-width: 800px) {
+  .popularDestinations {
+    width: 100%;
+  }
+  .popularDestinations h1,
+  .popularDestinations p {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}

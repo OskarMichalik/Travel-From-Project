@@ -1,0 +1,62 @@
+.baggageContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  margin-bottom: 5px;
+}
+.labelContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.labelContentText {
+  margin-left: 5px;
+}
+.labelContentText span {
+  color: grey;
+}
+.iconsContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.iconsContent svg {
+  width: 20px;
+  height: 20px;
+  color: grey;
+  transition: all 0.1s ease-in-out;
+}
+.plusIcon,
+.minusIcon {
+  height: 20px;
+  background-color: #e7e7e7;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 12px;
+  margin-right: 12px;
+  transition: all 0.1s ease-in-out;
+}
+.disabledIcon {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 12px;
+  margin-right: 12px;
+  transition: all 0.1s ease-in-out;
+}
+
+.plusIcon:hover,
+.minusIcon:hover {
+  background-color: #0172cb;
+  transition: all 0.1s ease-in-out;
+}
+.plusIcon:hover svg,
+.minusIcon:hover svg {
+  color: white;
+  transition: all 0.1s ease-in-out;
+}

@@ -1,0 +1,27 @@
+.inputDate {
+  width: 25%;
+  position: relative;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.cities p {
+  color: black;
+}
+.blockInput {
+  display: flex;
+  flex-direction: row;
+}
+@media only screen and (max-width: 800px) {
+  .inputDate {
+    width: 50%;
+    position: unset;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .inputDate {
+    width: 100%;
+  }
+}

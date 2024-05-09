@@ -1,0 +1,33 @@
+.itemPlaceFrom {
+  padding: 5px;
+  background-color: #f9971e;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-wrap: nowrap;
+}
+.itemPlaceTo {
+  padding: 5px;
+  background-color: #00a991;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-wrap: nowrap;
+}
+.deleteIcon {
+  background-color: #ffffffbb;
+  border-radius: 50%;
+}
+.deleteIcon svg {
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+}

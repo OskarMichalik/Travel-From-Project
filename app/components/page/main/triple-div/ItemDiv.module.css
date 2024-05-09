@@ -1,0 +1,39 @@
+.itemDiv {
+  margin-top: 15px;
+  width: 31%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.imageDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.imageDiv img {
+  width: 75%;
+}
+.itemDiv h3 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+.itemDiv p {
+  color: grey;
+  text-align: center;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1000px) {
+  .itemDiv {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .itemDiv {
+    width: 100%;
+  }
+}

@@ -1,0 +1,16 @@
+.tripleDiv {
+  margin: 0 auto;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2%;
+}
+
+@media screen and (max-width: 1000px) {
+  .tripleDiv {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

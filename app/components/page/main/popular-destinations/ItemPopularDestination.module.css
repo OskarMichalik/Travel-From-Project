@@ -1,0 +1,22 @@
+.itemPopularDestination {
+  position: relative;
+  aspect-ratio: 1/1;
+  width: 300px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.cityInfo {
+  position: absolute;
+  background-color: white;
+  padding: 15px;
+  height: 35%;
+  bottom: -45px;
+  width: 100%;
+  color: black;
+  font-size: 18px;
+}
+.itemPopularDestination img {
+  border-radius: 15px;
+}
