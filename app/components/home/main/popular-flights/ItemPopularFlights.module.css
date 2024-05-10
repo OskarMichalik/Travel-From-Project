@@ -1,0 +1,36 @@
+.itemPopularFlights {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 350px;
+  background-color: #ffffff;
+  height: 100px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgb(187, 187, 187);
+  cursor: pointer;
+}
+.itemPopularFlights svg {
+  width: 15px;
+}
+.image {
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.image img {
+  width: 100%;
+  object-fit: contain;
+}
+.cityLabels {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.text {
+  font-weight: 500;
+}

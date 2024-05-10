@@ -1,0 +1,17 @@
+.listPopularFlights {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+@media only screen and (max-width: 800px) {
+  .listPopularFlights {
+    width: 100%;
+  }
+}

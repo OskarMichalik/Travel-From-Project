@@ -1,5 +1,6 @@
 import classes from "./Main.module.css";
 import PopularDestinations from "./popular-destinations/PopularDestinations";
+import PopularFlights from "./popular-flights/PopularFlights";
 import TripleDiv from "./triple-div/TripleDiv";
 
 export default function Main() {
@@ -8,6 +9,7 @@ export default function Main() {
       <TripleDiv />
       <hr />
       <PopularDestinations />
+      <PopularFlights />
     </div>
   );
 }

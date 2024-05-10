@@ -4,12 +4,29 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { TravelInfoContext } from "@/store/travelInfoContext";
+import { useState, useEffect } from "react";
 
-export default function ItemPopularDestination({ city }) {
-  const displayWidth = window.innerWidth;
+export default function ItemPopularDestination({ city, nearestCity = "" }) {
+  const [displayWidth, setDisplayWidth] = useState(null);
+
+  useEffect(() => {
+    const updateWindowDimensions = () => {
+      setDisplayWidth(window.innerWidth);
+    };
+
+    updateWindowDimensions();
+
+    window.addEventListener("resize", updateWindowDimensions);
+
+    return () => {
+      window.removeEventListener("resize", updateWindowDimensions);
+    };
+  }, []);
+
   const isMobile = displayWidth <= 1200;
 
-  const { toInfo, addToTravelInfo } = useContext(TravelInfoContext);
+  const { toInfo, fromInfo, addToTravelInfo, addFromTravelInfo } =
+    useContext(TravelInfoContext);
 
   const includesCity = toInfo.includes(city);
 
@@ -45,6 +62,9 @@ export default function ItemPopularDestination({ city }) {
 
   function handleAddCity() {
     addToTravelInfo(city);
+    if (nearestCity !== "" && !fromInfo.includes(nearestCity)) {
+      addFromTravelInfo(nearestCity);
+    }
   }
 
   return (
@@ -55,6 +75,7 @@ export default function ItemPopularDestination({ city }) {
       {...(isMobile ? { whileInView: "hoverSlow" } : { whileInView: false })}
       animate="rest"
       onClick={includesCity ? undefined : handleAddCity}
+      whileTap={{ scale: 0.95 }}
     >
       <Image
         src={`/${city.name}.png`}

@@ -1,0 +1,30 @@
+.popularFlights {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #f1fdfd;
+  padding-bottom: 25px;
+}
+.popularFlightsLabel {
+  padding-top: 25px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.popularFlights h1 {
+  font-size: 30px;
+}
+.popularFlights p {
+  font-size: 18px;
+  color: grey;
+}
+
+@media only screen and (max-width: 800px) {
+  .popularFlights h1,
+  .popularFlights p {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .popularFlightsLabel {
+    width: 100%;
+  }
+}

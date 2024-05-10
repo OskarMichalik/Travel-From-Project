@@ -1,12 +1,15 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import classes from "./SubmitButton.module.css";
 import { motion } from "framer-motion";
 import { TravelInfoContext } from "@/store/travelInfoContext";
+import { useRouter } from "next/navigation";
 
 // Renders the submit button. It's disabled if the user hasn't entered any information in the 'From', 'Departure', 'Return' fields
 
 export default function SubmitButton() {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const { fromInfo, toInfo, departureInfo, returnInfo } =
     useContext(TravelInfoContext);
   return (
@@ -29,8 +32,12 @@ export default function SubmitButton() {
               ? true
               : false
           }
+          onClick={() => {
+            setIsLoading(true);
+            router.push("/search-tickets");
+          }}
         >
-          {toInfo.length > 0 ? "Search" : "Explore"}
+          {isLoading ? "Loading..." : toInfo.length > 0 ? "Search" : "Explore"}
         </motion.button>
       </div>
     </div>
