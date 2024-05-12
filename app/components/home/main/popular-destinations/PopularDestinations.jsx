@@ -33,7 +33,6 @@ export default function PopularDestinations() {
         item.id === nearestCity.popularDestinations[2] ||
         item.id === nearestCity.popularDestinations[3]
     );
-    console.log(popularDestinationsArray);
     return (
       <div className={classes.popularDestinations}>
         <h1>Popular destinations from {nearestCity.name}</h1>

@@ -7,9 +7,13 @@ export default function ButtonInputDate({
   departure,
   value,
   isEdited,
+  isInModal,
 }) {
   return (
-    <div className={classes.input} onClick={handleClick}>
+    <div
+      className={isInModal ? classes.inputInModal : classes.input}
+      onClick={handleClick}
+    >
       <div className={classes.spanText}>
         {departure ? "Departure" : "Return"}
       </div>

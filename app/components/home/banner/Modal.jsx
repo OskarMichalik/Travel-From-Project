@@ -7,6 +7,7 @@ export default function Modal({
   onClose,
   modalDate,
   modalPassengers,
+  searchTickets,
 }) {
   return (
     <div>
@@ -14,7 +15,11 @@ export default function Modal({
       <motion.dialog
         open
         className={
-          modalDate
+          searchTickets && modalDate
+            ? classes.modalDateSearchTickets
+            : searchTickets
+            ? classes.modalSearchTickets
+            : modalDate
             ? classes.modalDate
             : modalPassengers
             ? classes.modalPassengers

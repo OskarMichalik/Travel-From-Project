@@ -1,3 +1,11 @@
+Form:
+
+    'From' input: select a city from which you want to begin your journey
+    'To' input: select a city to which you want to travel
+    Date inputs: they are just examples ( it would be too much data, just for a mock project, to have flights for every day )
+
+    Submit button: takes you to the list of flights
+
 Popular destinations:
 
     if the width of the display is bigger than 1200px the information of the city will be shown on hover.

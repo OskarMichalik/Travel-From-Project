@@ -10,7 +10,16 @@
   position: absolute;
   padding-top: 25px;
   top: -25px;
-  width: max(100%, 280px);
+  height: 25rem;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 1px #80808080;
+  width: 350px;
+}
+.modalSearchTickets {
+  position: absolute;
+  padding-top: 25px;
+  top: -25px;
   height: 25rem;
   z-index: 10;
   border-radius: 5px;
@@ -21,7 +30,17 @@
   position: absolute;
   padding-top: 25px;
   top: -25px;
-  width: max(100%, 320px);
+  width: 350px;
+  height: 25rem;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 1px #80808080;
+}
+.modalDateSearchTickets {
+  position: absolute;
+  padding-top: 25px;
+  top: -25px;
+  width: 350px;
   height: 25rem;
   z-index: 10;
   border-radius: 5px;
@@ -36,6 +55,17 @@
   z-index: 10;
   border-radius: 5px;
   box-shadow: 0 0 5px 1px #80808080;
+}
+@media only screen and (max-width: 1000px) {
+  .modalDate {
+    top: 300px;
+  }
+  .modalSearchTickets {
+    top: 160px;
+  }
+  .modalDateSearchTickets {
+    top: 160px;
+  }
 }
 @media only screen and (max-width: 800px) {
   .modal,

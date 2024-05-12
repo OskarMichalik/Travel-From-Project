@@ -8,7 +8,7 @@ import InputTextModal from "./modal/InputTextModal";
 
 // Renders a button and modal. The 'from' prop decides if it's a button that changes 'fromInfo' (true) or 'toInfo' (false)
 
-export default function InputText({ from }) {
+export default function InputText({ from, searchTickets }) {
   const [searchValue, setSearchValue] = useState("");
   const [isEdited, setIsEdited] = useState(false);
   const inputRef = useRef();
@@ -47,6 +47,7 @@ export default function InputText({ from }) {
             searchValue={searchValue}
             listCitiesSetSearchValue={setSearchValue}
             inputRef={inputRef}
+            searchTickets={searchTickets}
           />
         )}
       </AnimatePresence>

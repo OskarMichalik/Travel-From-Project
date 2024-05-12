@@ -1,0 +1,12 @@
+.tickets {
+  padding: 25px;
+  width: 750px;
+  display: flex;
+  justify-content: center;
+  min-height: 1000px;
+}
+@media only screen and (max-width: 1150px) {
+  .tickets {
+    width: 100%;
+  }
+}

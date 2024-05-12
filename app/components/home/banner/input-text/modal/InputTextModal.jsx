@@ -12,9 +12,10 @@ export default function InputTextModal({
   searchValue,
   listCitiesSetSearchValue,
   inputRef,
+  searchTickets,
 }) {
   return (
-    <Modal onClose={handleClose}>
+    <Modal onClose={handleClose} searchTickets={searchTickets}>
       <div className={classes.modal}>
         <div className={classes.input}>
           <div className={classes.spanText}>{from ? "From" : "To"}</div>

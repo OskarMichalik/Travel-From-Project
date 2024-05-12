@@ -6,6 +6,10 @@ export const TravelInfoContext = createContext({
   toInfo: [],
   departureInfo: "",
   returnInfo: "",
+  dateIsEdited: {
+    departureIsEdited: false,
+    returnIsEdited: false,
+  },
   whichIsVisible: "",
   passengers: {
     adults: 1,
@@ -21,6 +25,7 @@ export const TravelInfoContext = createContext({
   addToTravelInfo: () => {},
   removeFromTravelInfo: () => {},
   removeToTravelInfo: () => {},
+  changeDateIsEdited: () => {},
   changeDepartureInfo: () => {},
   changeReturnInfo: () => {},
   changeWhichIsVisible: () => {},
@@ -139,6 +144,25 @@ function travelInfoReducer(state, action) {
     }
     return state;
   }
+  if (action.type === "CHANGE_DATE_IS_EDITED") {
+    if (action.payload === "departure") {
+      return {
+        ...state,
+        dateIsEdited: {
+          ...state.dateIsEdited,
+          departureIsEdited: true,
+        },
+      };
+    } else if (action.payload === "return") {
+      return {
+        ...state,
+        dateIsEdited: {
+          ...state.dateIsEdited,
+          returnIsEdited: true,
+        },
+      };
+    }
+  }
   return state;
 }
 
@@ -148,6 +172,10 @@ export default function TravelInfoContextProvider({ children }) {
     toInfo: [],
     departureInfo: "",
     returnInfo: "",
+    dateIsEdited: {
+      departureIsEdited: false,
+      returnIsEdited: false,
+    },
     whichIsVisible: "",
     passengers: {
       adults: 1,
@@ -219,12 +247,19 @@ export default function TravelInfoContextProvider({ children }) {
       payload: { category, number },
     });
   }
+  function handleChangeDateIsEdited(category) {
+    travelInfoDispatch({
+      type: "CHANGE_DATE_IS_EDITED",
+      payload: category,
+    });
+  }
 
   const ctxValue = {
     fromInfo: travelInfoState.fromInfo,
     toInfo: travelInfoState.toInfo,
     departureInfo: travelInfoState.departureInfo,
     returnInfo: travelInfoState.returnInfo,
+    dateIsEdited: travelInfoState.dateIsEdited,
     whichIsVisible: travelInfoState.whichIsVisible,
     passengers: travelInfoState.passengers,
     baggage: travelInfoState.baggage,
@@ -232,6 +267,7 @@ export default function TravelInfoContextProvider({ children }) {
     addToTravelInfo: handleAddToTravelInfo,
     removeFromTravelInfo: handleRemoveFromTravelInfo,
     removeToTravelInfo: handleRemoveToTravelInfo,
+    changeDateIsEdited: handleChangeDateIsEdited,
     changeDepartureInfo: handleChangeDepartureTravelInfo,
     changeReturnInfo: handleChangeReturnTravelInfo,
     changeWhichIsVisible: handleChangeWhichIsVisible,

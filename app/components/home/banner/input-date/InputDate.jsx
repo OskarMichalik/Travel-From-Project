@@ -10,11 +10,24 @@ import { memo } from "react";
 
 // Renders the button and modal. The 'departure' prop decides if it's a button that changes 'departureInfo' (true) or 'returnInfo' (false)
 
-const InputDate = memo(function InputDate({ departure }) {
-  const { departureInfo, changeDepartureInfo, changeReturnInfo } =
-    useContext(TravelInfoContext);
-  const [isEdited, setIsEdited] = useState(false);
-  const [value, onChange] = useState(new Date());
+const InputDate = memo(function InputDate({ departure, searchTickets }) {
+  const {
+    departureInfo,
+    returnInfo,
+    dateIsEdited,
+    changeDepartureInfo,
+    changeReturnInfo,
+    changeDateIsEdited,
+  } = useContext(TravelInfoContext);
+
+  let defaultValue = new Date();
+  if (departure && departureInfo) {
+    defaultValue = departureInfo;
+  } else if (returnInfo) {
+    defaultValue = returnInfo;
+  }
+
+  const [value, onChange] = useState(defaultValue);
 
   const day = value.getDate();
   const month = value.getMonth() + 1;
@@ -40,10 +53,10 @@ const InputDate = memo(function InputDate({ departure }) {
     onChange(value);
     if (departure) {
       changeDepartureInfo(value);
-      setIsEdited(true);
+      changeDateIsEdited("departure");
     } else {
       changeReturnInfo(value);
-      setIsEdited(true);
+      changeDateIsEdited("return");
     }
   }
 
@@ -51,12 +64,17 @@ const InputDate = memo(function InputDate({ departure }) {
     <div className={classes.inputDate}>
       <AnimatePresence>
         {whichIsVisible === whichNeedsToBeVisible && (
-          <Modal onClose={handleClose} modalDate>
+          <Modal onClose={handleClose} modalDate searchTickets={searchTickets}>
             <div className={classes.modal}>
               <ButtonInputDate
                 departure={departure}
                 value={date}
-                isEdited={isEdited}
+                isEdited={
+                  departure
+                    ? dateIsEdited.departureIsEdited
+                    : dateIsEdited.returnIsEdited
+                }
+                isInModal
               />
               <div className={classes.cities}>
                 <ListDate
@@ -74,7 +92,11 @@ const InputDate = memo(function InputDate({ departure }) {
         handleClick={handleClick}
         departure={departure}
         value={date}
-        isEdited={isEdited}
+        isEdited={
+          departure
+            ? dateIsEdited.departureIsEdited
+            : dateIsEdited.returnIsEdited
+        }
       />
     </div>
   );

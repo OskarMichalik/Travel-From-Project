@@ -45,16 +45,16 @@
 }
 @media only screen and (max-width: 400px) {
   .banner {
-    height: 600px;
+    height: 650px;
   }
   .bannerContent {
     width: 98%;
   }
   .flightForm {
-    height: 350px;
+    height: 400px;
   }
   .pathDateInfo {
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
   }
 }

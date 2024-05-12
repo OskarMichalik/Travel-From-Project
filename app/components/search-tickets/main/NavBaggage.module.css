@@ -1,0 +1,18 @@
+.navBaggage {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+}
+.baggage {
+  border-radius: 5px;
+  padding: 25px;
+  height: 17rem;
+  width: 350px;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 1150px) {
+  .navBaggage {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
