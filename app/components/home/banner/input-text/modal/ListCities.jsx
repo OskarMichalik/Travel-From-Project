@@ -35,9 +35,10 @@ export default function ListCities({
 
   const { fetchedData: availablePlaces } = useFetch(fetchSortedPlaces, []);
   const nearYou = availablePlaces.slice(0, 4);
+  const nearestCity = availablePlaces.slice(0, 1);
 
   if (nearYou.length === 0) {
-    const cities = CITIES.slice(0, 4);
+    let cities = CITIES.slice(0, 4);
 
     return (
       <div className={classes.listCities}>
@@ -65,6 +66,18 @@ export default function ListCities({
       </div>
     );
   }
+  const popularFlights = CITIES.filter((item) => item.id === nearestCity[0].id);
+  let cities = [];
+  if (from) {
+    cities = nearYou;
+  } else {
+    const popularCitiesIds = popularFlights[0].popularDestinations;
+    for (let id of popularCitiesIds) {
+      cities.push(CITIES.filter((item) => item.id === id)[0]);
+    }
+
+    console.log(cities);
+  }
 
   return (
     <div className={classes.listCities}>
@@ -80,8 +93,8 @@ export default function ListCities({
           />
         </>
       )}
-      <span>Near You</span>
-      {nearYou.map((item) => (
+      <span>{from ? "Near you" : "Popular cities"}</span>
+      {cities.map((item) => (
         <ItemCity
           city={item}
           key={item.id}

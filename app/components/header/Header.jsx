@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <div className={classes.header}>
-      <Link href="/">
+      <Link href="/" as="/">
         <span>
           <Image src={logo} alt="Travel Logo" />
           Roamify

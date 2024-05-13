@@ -86,11 +86,34 @@ function travelInfoReducer(state, action) {
     };
   }
   if (action.type === "CHANGE_PASSENGER_NUMBER") {
+    let updatedBaggageMediumNumber = state.baggage.medium;
+    let updatedBaggageSmallNumber = state.baggage.small;
     if (action.payload.category === "adults") {
       const updatedPassengerNumber =
         state.passengers.adults + action.payload.number;
+
+      if (
+        state.baggage.medium >
+        updatedPassengerNumber + state.passengers.children
+      ) {
+        updatedBaggageMediumNumber =
+          updatedPassengerNumber + state.passengers.children;
+      }
+      if (
+        state.baggage.small >
+        (updatedPassengerNumber + state.passengers.children) * 2
+      ) {
+        updatedBaggageSmallNumber =
+          (updatedPassengerNumber + state.passengers.children) * 2;
+      }
+
       return {
         ...state,
+        baggage: {
+          ...state.baggage,
+          medium: updatedBaggageMediumNumber,
+          small: updatedBaggageSmallNumber,
+        },
         passengers: {
           ...state.passengers,
           adults: updatedPassengerNumber,
@@ -100,8 +123,29 @@ function travelInfoReducer(state, action) {
     } else if (action.payload.category === "children") {
       const updatedPassengerNumber =
         state.passengers.children + action.payload.number;
+
+      if (
+        state.baggage.medium >
+        updatedPassengerNumber + state.passengers.adults
+      ) {
+        updatedBaggageMediumNumber =
+          updatedPassengerNumber + state.passengers.adults;
+      }
+      if (
+        state.baggage.small >
+        (updatedPassengerNumber + state.passengers.adults) * 2
+      ) {
+        updatedBaggageSmallNumber =
+          (updatedPassengerNumber + state.passengers.adults) * 2;
+      }
+
       return {
         ...state,
+        baggage: {
+          ...state.baggage,
+          medium: updatedBaggageMediumNumber,
+          small: updatedBaggageSmallNumber,
+        },
         passengers: {
           ...state.passengers,
           children: updatedPassengerNumber,

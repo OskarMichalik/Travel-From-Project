@@ -2,10 +2,10 @@ import classes from "./ListTickets.module.css";
 import { useContext } from "react";
 import { TravelInfoContext } from "@/store/travelInfoContext";
 import FLIGHTS from "@/store/flights";
+import ItemTicket from "./ItemTicket";
 
 export default function ListTickets() {
-  const { fromInfo, toInfo, departureInfo, returnInfo, baggage, passengers } =
-    useContext(TravelInfoContext);
+  const { fromInfo, toInfo } = useContext(TravelInfoContext);
 
   let availableFlightsFrom = [];
   let availableFlightsTo = [];
@@ -31,7 +31,11 @@ export default function ListTickets() {
     }
   });
 
-  console.log(availableFlights);
-
-  return;
+  return (
+    <div className={classes.listTickets}>
+      {availableFlights.map((item) => (
+        <ItemTicket flight={item} key={`${item.from} ${item.to}`} />
+      ))}
+    </div>
+  );
 }
