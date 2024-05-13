@@ -1,4 +1,4 @@
-<b>Home page<b/>
+---Home page
 
 Form:
 
@@ -21,7 +21,7 @@ Popular flights:
 
     Clicking the block will add it to the 'From' and 'To' inputs
 
-<b>Search Tickets page</b>
+---Search Tickets page
 
 Nav:
 
