@@ -11,7 +11,7 @@ function displayMoney(value) {
   return updatedValue;
 }
 
-export default function ItemTicket({ flight }) {
+export default function ItemTicket({ flight, index }) {
   const { baggage, passengers } = useContext(TravelInfoContext);
   const cityFrom = CITIES.find((item) => item.id === flight.from);
   const cityTo = CITIES.find((item) => item.id === flight.to);
@@ -22,7 +22,12 @@ export default function ItemTicket({ flight }) {
     baggage.small * 50;
 
   return (
-    <motion.div className={classes.itemTicket} whileHover={{ scale: 1.05 }}>
+    <motion.div
+      className={classes.itemTicket}
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0, transition: { delay: 0.1 * index } }}
+    >
       <div className={classes.image}>
         <Image
           src={`/plane.png`}

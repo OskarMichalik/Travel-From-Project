@@ -2,10 +2,24 @@
   position: relative;
   aspect-ratio: 1/1;
   width: 300px;
+  overflow: hidden;
+  border-radius: 15px;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
   cursor: pointer;
+}
+.itemPopularDestinationWide {
+  position: relative;
+  height: 300px;
+  width: 625px;
+  overflow: hidden;
+  border-radius: 15px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  cursor: pointer;
+  object-fit: cover;
 }
 
 .cityInfo {
@@ -20,4 +34,19 @@
 }
 .itemPopularDestination img {
   border-radius: 15px;
+}
+.itemPopularDestinationWide img {
+  border-radius: 15px;
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+}
+
+@media only screen and (max-width: 1300px) {
+  .itemPopularDestinationWide {
+    width: 300px;
+  }
+  .itemPopularDestinationWide img {
+    min-height: 300px;
+  }
 }

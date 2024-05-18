@@ -1,20 +1,17 @@
-.inputText {
-  width: 25%;
-  position: relative;
-}
 .input {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   cursor: pointer;
-  border-radius: 5px;
-  box-shadow: 0 0 0 1px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px lightgrey;
   padding: 5px;
   width: 90%;
   overflow: hidden;
   scroll-behavior: smooth;
   position: relative;
   z-index: 9;
+  background-color: white;
 }
 .spanText {
   color: #808080;
@@ -27,25 +24,13 @@
   overflow: hidden;
   text-wrap: nowrap;
   padding: 5px;
+  color: #808080;
 }
-.cities p {
-  color: black;
+.modal {
+  display: flex;
+  flex-direction: column;
 }
 .content {
   display: flex;
   flex-direction: row;
-}
-@media only screen and (max-width: 800px) {
-  .inputText {
-    width: 50%;
-    position: unset;
-  }
-  .input {
-    width: 98%;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .inputText {
-    width: 100%;
-  }
 }

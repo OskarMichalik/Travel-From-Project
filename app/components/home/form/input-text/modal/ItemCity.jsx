@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import { useContext } from "react";
 import classes from "./ItemCity.module.css";
 import { TravelInfoContext } from "@/store/travelInfoContext";
@@ -10,6 +12,7 @@ export default function ItemCity({
   onClose,
   inputRef,
   setSearchValue,
+  index,
 }) {
   const {
     fromInfo,
@@ -79,9 +82,11 @@ export default function ItemCity({
   }
 
   return (
-    <div
+    <motion.div
       className={classes.itemCity}
       onClick={includes === -1 ? handleAddCityClose : handleRemoveCityClose}
+      initial={{ opacity: 0, y: -5 }}
+      animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
     >
       <div className={classes.cityName}>
         <svg className={classes.icon}>
@@ -151,6 +156,6 @@ export default function ItemCity({
           </svg>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

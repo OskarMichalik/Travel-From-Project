@@ -31,7 +31,9 @@ export default function PopularDestinations() {
         item.id === nearestCity.popularDestinations[0] ||
         item.id === nearestCity.popularDestinations[1] ||
         item.id === nearestCity.popularDestinations[2] ||
-        item.id === nearestCity.popularDestinations[3]
+        item.id === nearestCity.popularDestinations[3] ||
+        item.id === nearestCity.popularDestinations[4] ||
+        item.id === nearestCity.popularDestinations[5]
     );
     return (
       <div className={classes.popularDestinations}>

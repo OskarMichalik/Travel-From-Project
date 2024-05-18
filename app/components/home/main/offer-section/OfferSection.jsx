@@ -1,10 +1,10 @@
-import ItemDiv from "./ItemDiv";
-import classes from "./TripleDiv.module.css";
+import ItemDiv from "./ItemOffer";
+import classes from "./OfferSection.module.css";
 import image3 from "@/public/image3.png";
 import image2 from "@/public/image2.png";
 import image1 from "@/public/image1.png";
 
-export default function TripleDiv() {
+export default function OfferSection() {
   return (
     <div className={classes.tripleDiv}>
       <ItemDiv

@@ -33,8 +33,8 @@ export default function ListTickets() {
 
   return (
     <div className={classes.listTickets}>
-      {availableFlights.map((item) => (
-        <ItemTicket flight={item} key={`${item.from} ${item.to}`} />
+      {availableFlights.map((item, index) => (
+        <ItemTicket flight={item} key={index} index={index} />
       ))}
     </div>
   );

@@ -1,6 +1,6 @@
-import classes from "./BannerHeader.module.css";
+import classes from "./FormHeader.module.css";
 
-export default function BannerHeader() {
+export default function FormHeader() {
   return (
     <div className={classes.bannerHeader}>
       <h1>Fly for less!</h1>

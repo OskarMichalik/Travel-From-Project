@@ -1,11 +1,10 @@
-import Footer from "./components/footer/Footer";
-import Banner from "./components/home/banner/Banner";
+import Form from "./components/home/form/Form";
 import Main from "./components/home/main/Main";
 
 export default function Home() {
   return (
     <>
-      <Banner />
+      <Form />
       <Main />
     </>
   );

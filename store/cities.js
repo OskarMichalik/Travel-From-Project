@@ -5,7 +5,7 @@ const CITIES = [
     country: "Japan",
     lat: 35.68,
     lon: 139.76,
-    popularDestinations: [3, 4, 23, 25],
+    popularDestinations: [3, 4, 23, 25, 2, 6],
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const CITIES = [
     country: "China",
     lat: 39.9,
     lon: 116.41,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 12, 6],
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const CITIES = [
     country: "France",
     lat: 48.86,
     lon: 2.35,
-    popularDestinations: [4, 1, 23, 25],
+    popularDestinations: [4, 1, 23, 25, 2, 6],
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const CITIES = [
     country: "Australia",
     lat: -33.87,
     lon: 151.21,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const CITIES = [
     country: "Russia",
     lat: 55.75,
     lon: 37.62,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const CITIES = [
     country: "UAE",
     lat: 25.27,
     lon: 55.3,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 12],
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const CITIES = [
     country: "Brazil",
     lat: -23.55,
     lon: -46.63,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const CITIES = [
     country: "USA",
     lat: 40.71,
     lon: -74.01,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ const CITIES = [
     country: "Mexico",
     lat: 19.43,
     lon: -99.13,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ const CITIES = [
     country: "Thailand",
     lat: 13.75,
     lon: 100.52,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ const CITIES = [
     country: "Egypt",
     lat: 30.04,
     lon: 31.24,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ const CITIES = [
     country: "Canada",
     lat: 43.7,
     lon: -79.42,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 13,
@@ -101,7 +101,7 @@ const CITIES = [
     country: "Brazil",
     lat: -22.91,
     lon: -43.21,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 14,
@@ -109,7 +109,7 @@ const CITIES = [
     country: "Spain",
     lat: 40.42,
     lon: -3.7,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 15,
@@ -117,7 +117,7 @@ const CITIES = [
     country: "USA",
     lat: 34.05,
     lon: -118.24,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 16,
@@ -125,7 +125,7 @@ const CITIES = [
     country: "India",
     lat: 19.07,
     lon: 72.87,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 17,
@@ -133,7 +133,7 @@ const CITIES = [
     country: "Singapore",
     lat: 1.35,
     lon: 103.82,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 18,
@@ -141,7 +141,7 @@ const CITIES = [
     country: "South Korea",
     lat: 37.57,
     lon: 126.98,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 19,
@@ -149,7 +149,7 @@ const CITIES = [
     country: "Turkey",
     lat: 41.01,
     lon: 28.97,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 20,
@@ -157,7 +157,7 @@ const CITIES = [
     country: "China",
     lat: 31.23,
     lon: 121.47,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 21,
@@ -165,7 +165,7 @@ const CITIES = [
     country: "Hong Kong",
     lat: 22.28,
     lon: 114.16,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 22,
@@ -173,7 +173,7 @@ const CITIES = [
     country: "Germany",
     lat: 52.52,
     lon: 13.4,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 23,
@@ -181,7 +181,7 @@ const CITIES = [
     country: "United Kingdom",
     lat: 51.5,
     lon: -0.12,
-    popularDestinations: [3, 1, 4, 25],
+    popularDestinations: [3, 1, 4, 25, 2, 6],
   },
   {
     id: 24,
@@ -189,7 +189,7 @@ const CITIES = [
     country: "Germany",
     lat: 48.14,
     lon: 11.58,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 25,
@@ -197,7 +197,7 @@ const CITIES = [
     country: "Italy",
     lat: 41.9,
     lon: 12.49,
-    popularDestinations: [3, 1, 23, 4],
+    popularDestinations: [3, 1, 23, 4, 2, 6],
   },
   {
     id: 26,
@@ -205,7 +205,7 @@ const CITIES = [
     country: "Spain",
     lat: 41.38,
     lon: 2.18,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 27,
@@ -213,7 +213,7 @@ const CITIES = [
     country: "Italy",
     lat: 45.46,
     lon: 9.19,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 28,
@@ -221,7 +221,7 @@ const CITIES = [
     country: "Austria",
     lat: 48.21,
     lon: 16.37,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 29,
@@ -229,7 +229,7 @@ const CITIES = [
     country: "Switzerland",
     lat: 47.37,
     lon: 8.54,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 30,
@@ -237,7 +237,7 @@ const CITIES = [
     country: "Czech Republic",
     lat: 50.08,
     lon: 14.42,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 31,
@@ -245,7 +245,7 @@ const CITIES = [
     country: "Netherlands",
     lat: 52.37,
     lon: 4.9,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 32,
@@ -253,7 +253,7 @@ const CITIES = [
     country: "Hungary",
     lat: 47.5,
     lon: 19.04,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 33,
@@ -261,7 +261,7 @@ const CITIES = [
     country: "Sweden",
     lat: 59.33,
     lon: 18.06,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 34,
@@ -269,7 +269,7 @@ const CITIES = [
     country: "Norway",
     lat: 59.91,
     lon: 10.74,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 35,
@@ -277,7 +277,7 @@ const CITIES = [
     country: "Denmark",
     lat: 55.68,
     lon: 12.57,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 36,
@@ -285,7 +285,7 @@ const CITIES = [
     country: "Ireland",
     lat: 53.35,
     lon: -6.26,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 37,
@@ -293,7 +293,7 @@ const CITIES = [
     country: "Greece",
     lat: 37.98,
     lon: 23.72,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 38,
@@ -301,7 +301,7 @@ const CITIES = [
     country: "Portugal",
     lat: 38.71,
     lon: -9.14,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 39,
@@ -309,7 +309,7 @@ const CITIES = [
     country: "Finland",
     lat: 60.17,
     lon: 24.94,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 40,
@@ -317,7 +317,7 @@ const CITIES = [
     country: "Poland",
     lat: 52.23,
     lon: 21.01,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 41,
@@ -325,7 +325,7 @@ const CITIES = [
     country: "Belgium",
     lat: 50.85,
     lon: 4.35,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 42,
@@ -333,7 +333,7 @@ const CITIES = [
     country: "United Kingdom",
     lat: 55.95,
     lon: -3.19,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 43,
@@ -341,7 +341,7 @@ const CITIES = [
     country: "United Kingdom",
     lat: 53.48,
     lon: -2.24,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 44,
@@ -349,7 +349,7 @@ const CITIES = [
     country: "United Kingdom",
     lat: 52.48,
     lon: -1.9,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 45,
@@ -357,7 +357,7 @@ const CITIES = [
     country: "United Kingdom",
     lat: 55.86,
     lon: -4.25,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 46,
@@ -365,7 +365,7 @@ const CITIES = [
     country: "Germany",
     lat: 50.11,
     lon: 8.68,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 47,
@@ -373,7 +373,7 @@ const CITIES = [
     country: "Germany",
     lat: 51.22,
     lon: 6.77,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 48,
@@ -381,7 +381,7 @@ const CITIES = [
     country: "Germany",
     lat: 53.55,
     lon: 9.99,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 49,
@@ -389,7 +389,7 @@ const CITIES = [
     country: "Germany",
     lat: 50.94,
     lon: 6.96,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
   {
     id: 50,
@@ -397,7 +397,7 @@ const CITIES = [
     country: "France",
     lat: 43.3,
     lon: 5.38,
-    popularDestinations: [3, 1, 23, 25],
+    popularDestinations: [3, 1, 23, 25, 2, 6],
   },
 ];
 

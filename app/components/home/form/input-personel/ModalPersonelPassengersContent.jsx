@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import { TravelInfoContext } from "@/store/travelInfoContext";
 import classes from "./ModalPersonelPassengersContent.module.css";
 import BaggageInput from "./baggage/BaggageInput";
@@ -19,7 +21,12 @@ export default function ModalPersonelPassengersContent() {
   const baggageIsMax = passengers.adults + passengers.children;
 
   return (
-    <div className={classes.modalPersonelContent}>
+    <motion.div
+      className={classes.modalPersonelContent}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.05 } }}
+    >
       <div className={classes.passengers}>
         <div className={classes.label}>Passengers</div>
         <PassengersInput
@@ -33,6 +40,6 @@ export default function ModalPersonelPassengersContent() {
           baggageIsMax={baggageIsMax}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
