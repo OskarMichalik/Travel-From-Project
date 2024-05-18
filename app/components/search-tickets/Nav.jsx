@@ -1,6 +1,6 @@
 import classes from "./Nav.module.css";
-import InputText from "../home/banner/input-text/InputText";
-import InputDate from "../home/banner/input-date/InputDate";
+import InputText from "../home/form/input-text/InputText";
+import InputDate from "../home/form/input-date/InputDate";
 
 export default function Nav() {
   return (
