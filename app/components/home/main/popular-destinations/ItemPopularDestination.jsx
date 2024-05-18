@@ -1,7 +1,7 @@
 "use client";
 import classes from "./ItemPopularDestination.module.css";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import { useContext } from "react";
 import { TravelInfoContext } from "@/store/travelInfoContext";
 import { useState, useEffect } from "react";
@@ -30,36 +30,6 @@ export default function ItemPopularDestination({ city, nearestCity = "" }) {
 
   const includesCity = toInfo.includes(city);
 
-  const textMotion = {
-    rest: {
-      y: 0,
-      opacity: 0,
-      transition: {
-        duration: 0.2,
-        type: "tween",
-        ease: "easeIn",
-      },
-    },
-    hover: {
-      y: -30,
-      opacity: 1,
-      transition: {
-        duration: 0.4,
-        type: "tween",
-        ease: "easeOut",
-      },
-    },
-    hoverSlow: {
-      y: -30,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        type: "tween",
-        ease: "easeOut",
-      },
-    },
-  };
-
   function handleAddCity() {
     addToTravelInfo(city);
     if (nearestCity !== "" && !fromInfo.includes(nearestCity)) {
@@ -67,24 +37,52 @@ export default function ItemPopularDestination({ city, nearestCity = "" }) {
     }
   }
 
+  const [scope, animate] = useAnimate();
+
+  const handleAnimateOver = async () => {
+    animate("#targetImg", { y: -80 }, { duration: 0.4 });
+    animate("#targetCityInfo", { y: -30, opacity: 1 }, { duration: 0.2 });
+  };
+  const handleAnimateOverSlow = async () => {
+    animate("#targetImg", { y: -80 }, { duration: 2 });
+    animate("#targetCityInfo", { y: -30, opacity: 1 }, { duration: 2 });
+  };
+  const handleAnimateOut = async () => {
+    animate("#targetImg", { y: 0 }, { duration: 0.2 });
+    animate("#targetCityInfo", { y: 0, opacity: 0 }, { duration: 0.2 });
+  };
+
   return (
     <motion.div
-      className={classes.itemPopularDestination}
-      initial="rest"
-      whileHover="hover"
-      {...(isMobile ? { whileInView: "hoverSlow" } : { whileInView: false })}
-      animate="rest"
+      className={
+        city.id === 6 || city.id === 2 || city.id === 12
+          ? classes.itemPopularDestinationWide
+          : classes.itemPopularDestination
+      }
+      ref={scope}
       onClick={includesCity ? undefined : handleAddCity}
+      onMouseOver={handleAnimateOver}
+      onMouseOut={handleAnimateOut}
+      {...(isMobile
+        ? { whileInView: handleAnimateOverSlow }
+        : { whileInView: false })}
       whileTap={{ scale: 0.95 }}
     >
-      <Image
-        src={`/${city.name}.png`}
-        alt={city.name}
-        width={400}
-        height={400}
-        draggable="false"
-      />
-      <motion.div variants={textMotion} className={classes.cityInfo}>
+      <motion.div id="targetImg" initial={{ y: 0 }}>
+        <Image
+          src={`/${city.name}.png`}
+          alt={city.name}
+          width={400}
+          height={400}
+          draggable="false"
+          style={{ objectFit: "cover" }}
+        />
+      </motion.div>
+      <motion.div
+        className={classes.cityInfo}
+        id="targetCityInfo"
+        initial={{ opacity: 0, y: 0 }}
+      >
         <h1>{city.name}</h1>
         <p>{city.country}</p>
       </motion.div>

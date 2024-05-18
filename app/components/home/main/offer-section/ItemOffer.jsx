@@ -1,4 +1,4 @@
-import classes from "./ItemDiv.module.css";
+import classes from "./ItemOffer.module.css";
 import Image from "next/image";
 
 export default function ItemDiv({ imageSrc, mainText, subText }) {

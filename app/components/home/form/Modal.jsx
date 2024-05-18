@@ -25,9 +25,12 @@ export default function Modal({
             ? classes.modalPassengers
             : classes.modal
         }
-        initial={{ scale: 0.1, opacity: 1 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.1, opacity: 0 }}
+        initial={{ backgroundColor: "#FFFFFF55" }}
+        animate={{ backgroundColor: "#FFFFFFff", opacity: 1 }}
+        exit={{ backgroundColor: "#FFFFFF55", opacity: 0 }}
+        transition={{
+          duration: 0.1,
+        }}
       >
         {children}
       </motion.dialog>

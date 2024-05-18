@@ -29,3 +29,7 @@ body {
   color: white;
   border-radius: 5px;
 }
+.header-space {
+  width: 100%;
+  height: 83px;
+}

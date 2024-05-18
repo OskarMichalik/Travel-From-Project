@@ -29,4 +29,7 @@ Nav:
 
 Ticket list:
 
-    Displays found flights, based on the provided cities ( date does not affect the result )/
+    Displays found flights, based on the provided cities ( date does not affect the result )
+
+v1.01
+Updated Animations, added menu
