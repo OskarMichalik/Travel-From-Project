@@ -24,7 +24,6 @@ export default function ItemPopularDestination({ city, nearestCity = "" }) {
   }, []);
 
   const isMobile = displayWidth <= 1200;
-  const changeImageWidth = displayWidth <= 1300;
 
   const { toInfo, fromInfo, addToTravelInfo, addFromTravelInfo } =
     useContext(TravelInfoContext);

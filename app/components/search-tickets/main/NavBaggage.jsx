@@ -1,4 +1,4 @@
-import ModalPersonelPassengersContent from "../../home/banner/input-personel/ModalPersonelPassengersContent";
+import ModalPersonelPassengersContent from "../../home/form/input-personel/ModalPersonelPassengersContent";
 import classes from "./NavBaggage.module.css";
 
 export default function NavBaggage() {
