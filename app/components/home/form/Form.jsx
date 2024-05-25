@@ -1,11 +1,21 @@
+"use client";
 import classes from "./Form.module.css";
 import FormHeader from "./form-header/FormHeader";
 import InputText from "./input-text/InputText";
 import InputDate from "./input-date/InputDate";
 import InputPersonel from "./input-personel/InputPersonel";
 import SubmitButton from "./submit-button/SubmitButton";
+import { useDispatch } from "react-redux";
+import { getCities } from "@/store/flightsActions";
+import { useEffect } from "react";
 
 export default function Form() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCities());
+  }, [dispatch]);
+
   return (
     <div className={classes.banner}>
       <div className={classes.bannerContent}>

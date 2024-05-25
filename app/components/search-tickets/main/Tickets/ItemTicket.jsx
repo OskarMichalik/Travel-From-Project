@@ -1,10 +1,8 @@
 "use client";
 import classes from "./ItemTicket.module.css";
-import CITIES from "@/store/cities";
-import { TravelInfoContext } from "@/store/travelInfoContext";
 import Image from "next/image";
-import { useContext } from "react";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
 function displayMoney(value) {
   const updatedValue = "$" + value.toFixed(2);
@@ -12,15 +10,27 @@ function displayMoney(value) {
 }
 
 export default function ItemTicket({ flight, index }) {
-  const { baggage, passengers } = useContext(TravelInfoContext);
-  const cityFrom = CITIES.find((item) => item.id === flight.from);
-  const cityTo = CITIES.find((item) => item.id === flight.to);
+  const places = useSelector((state) => state.flights.cities);
+  const baggage = useSelector((state) => state.form.baggage);
+  const passengers = useSelector((state) => state.form.passengers);
+  const citiesAreLoading = useSelector(
+    (state) => state.checks.citiesAreLoading
+  );
+
+  if (citiesAreLoading) {
+    return (
+      <div className="loading">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+  const cityFrom = places.find((item) => item.id === flight.from);
+  const cityTo = places.find((item) => item.id === flight.to);
 
   const flightPrice =
     flight.price * (passengers.adults + 0.5 * passengers.children) +
     baggage.medium * 80 +
     baggage.small * 50;
-
   return (
     <motion.div
       className={classes.itemTicket}

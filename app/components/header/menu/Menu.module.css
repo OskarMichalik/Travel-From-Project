@@ -62,3 +62,14 @@
 .menuGitButton button:hover {
   background-color: #00a991;
 }
+
+@media only screen and (max-width: 800px) {
+  .menuContent {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .menuDescription {
+    width: 90%;
+  }
+}

@@ -1,11 +1,11 @@
 import classes from "./ListTickets.module.css";
-import { useContext } from "react";
-import { TravelInfoContext } from "@/store/travelInfoContext";
 import FLIGHTS from "@/store/flights";
 import ItemTicket from "./ItemTicket";
+import { useSelector } from "react-redux";
 
 export default function ListTickets() {
-  const { fromInfo, toInfo } = useContext(TravelInfoContext);
+  const fromInfo = useSelector((state) => state.form.fromInfo);
+  const toInfo = useSelector((state) => state.form.toInfo);
 
   let availableFlightsFrom = [];
   let availableFlightsTo = [];

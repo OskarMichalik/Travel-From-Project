@@ -4,10 +4,10 @@ import CITIES from "@/store/cities";
 import { sortPlacesByDistance } from "@/app/util/locationFn";
 import { useFetch } from "@/app/hooks/useFetch";
 import ListPopularDestinations from "./ListPopularDestinations";
+import { useSelector } from "react-redux";
+import { useCallback } from "react";
 
-async function fetchSortedPlaces() {
-  const places = CITIES;
-
+async function fetchSortedPlaces(places) {
   return new Promise((resolve) => {
     navigator.geolocation.getCurrentPosition((position) => {
       const sortedPlaces = sortPlacesByDistance(
@@ -22,7 +22,30 @@ async function fetchSortedPlaces() {
 }
 
 export default function PopularDestinations() {
-  const { fetchedData: availablePlaces } = useFetch(fetchSortedPlaces, []);
+  const places = useSelector((state) => state.flights.cities);
+  const citiesAreLoading = useSelector(
+    (state) => state.checks.citiesAreLoading
+  );
+
+  const memoizedFetchSortedPlaces = useCallback(
+    () => fetchSortedPlaces(places),
+    [places]
+  );
+  const { fetchedData: availablePlaces } = useFetch(memoizedFetchSortedPlaces);
+
+  if (citiesAreLoading) {
+    //Checks if cities are loading
+    return (
+      <div className={classes.popularDestinations}>
+        <h1>Popular destinations</h1>
+        <p>Those places were picked just for you... </p>
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (availablePlaces.length > 0) {
     const nearestCity = availablePlaces[0];
 
@@ -48,7 +71,12 @@ export default function PopularDestinations() {
   } else {
     const destinations = CITIES.filter(
       (item) =>
-        item.id === 3 || item.id === 1 || item.id === 23 || item.id === 25
+        item.id === 3 ||
+        item.id === 1 ||
+        item.id === 23 ||
+        item.id === 25 ||
+        item.id === 2 ||
+        item.id === 6
     );
     return (
       <div className={classes.popularDestinations}>
