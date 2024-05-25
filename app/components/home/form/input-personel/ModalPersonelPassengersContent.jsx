@@ -1,22 +1,23 @@
 "use client";
 import { motion } from "framer-motion";
-import { TravelInfoContext } from "@/store/travelInfoContext";
 import classes from "./ModalPersonelPassengersContent.module.css";
 import BaggageInput from "./baggage/BaggageInput";
 import PassengersInput from "./passengers/PassengersInput";
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { formInputActions } from "@/store/formInputSlice";
 
 // Renders the modal. contains the passanger and baggage form
 
 export default function ModalPersonelPassengersContent() {
-  const { passengers, changePassengerNumber, baggage, changeBaggageNumber } =
-    useContext(TravelInfoContext);
+  const dispatch = useDispatch();
+  const passengers = useSelector((state) => state.form.passengers);
+  const baggage = useSelector((state) => state.form.baggage);
 
   function handleChangePassengersNumber(category, number) {
-    changePassengerNumber(category, number);
+    dispatch(formInputActions.CHANGE_PASSENGER_NUMBER({ category, number }));
   }
   function handleChangeBaggageNumber(category, number) {
-    changeBaggageNumber(category, number);
+    dispatch(formInputActions.CHANGE_BAGGAGE_NUMBER({ category, number }));
   }
   const baggageIsMax = passengers.adults + passengers.children;
 

@@ -2,9 +2,9 @@
 import classes from "./ItemPopularDestination.module.css";
 import Image from "next/image";
 import { motion, useAnimate } from "framer-motion";
-import { useContext } from "react";
-import { TravelInfoContext } from "@/store/travelInfoContext";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { formInputActions } from "@/store/formInputSlice";
 
 export default function ItemPopularDestination({ city, nearestCity = "" }) {
   const [displayWidth, setDisplayWidth] = useState(null);
@@ -25,15 +25,16 @@ export default function ItemPopularDestination({ city, nearestCity = "" }) {
 
   const isMobile = displayWidth <= 1200;
 
-  const { toInfo, fromInfo, addToTravelInfo, addFromTravelInfo } =
-    useContext(TravelInfoContext);
+  const toInfo = useSelector((state) => state.form.toInfo);
+  const fromInfo = useSelector((state) => state.form.fromInfo);
+  const dispatch = useDispatch();
 
   const includesCity = toInfo.includes(city);
 
   function handleAddCity() {
-    addToTravelInfo(city);
+    dispatch(formInputActions.ADD_TO_TRAVEL_INFO(city));
     if (nearestCity !== "" && !fromInfo.includes(nearestCity)) {
-      addFromTravelInfo(nearestCity);
+      dispatch(formInputActions.ADD_FROM_TRAVEL_INFO(nearestCity));
     }
   }
 
