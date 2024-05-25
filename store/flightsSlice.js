@@ -9,10 +9,6 @@ const flightsSlice = createSlice({
       const array = action.payload;
       state.cities = array;
     },
-    ADD_FLIGHTS_BY_ARRAY(state, action) {
-      const array = action.payload;
-      state.flights = array;
-    },
     ADD_POPULARFLIGHTS_BY_ARRAY(state, action) {
       const array = action.payload;
       state.popularFlights = array;

@@ -1,6 +1,5 @@
 "use client";
 import classes from "./ItemPopularFlights.module.css";
-//import CITIES from "@/store/cities";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";

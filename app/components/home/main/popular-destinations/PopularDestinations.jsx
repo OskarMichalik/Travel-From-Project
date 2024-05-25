@@ -1,6 +1,5 @@
 "use client";
 import classes from "./PopularDestinations.module.css";
-import CITIES from "@/store/cities";
 import { sortPlacesByDistance } from "@/app/util/locationFn";
 import { useFetch } from "@/app/hooks/useFetch";
 import ListPopularDestinations from "./ListPopularDestinations";
@@ -49,7 +48,7 @@ export default function PopularDestinations() {
   if (availablePlaces.length > 0) {
     const nearestCity = availablePlaces[0];
 
-    const popularDestinationsArray = CITIES.filter(
+    const popularDestinationsArray = places.filter(
       (item) =>
         item.id === nearestCity.popularDestinations[0] ||
         item.id === nearestCity.popularDestinations[1] ||
@@ -69,7 +68,7 @@ export default function PopularDestinations() {
       </div>
     );
   } else {
-    const destinations = CITIES.filter(
+    const destinations = places.filter(
       (item) =>
         item.id === 3 ||
         item.id === 1 ||
