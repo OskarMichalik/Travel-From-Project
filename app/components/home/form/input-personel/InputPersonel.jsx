@@ -2,23 +2,23 @@
 import Modal from "../Modal";
 import classes from "./InputPersonel.module.css";
 import InputPersonelButton from "./InputPersonelButton";
-import { useContext } from "react";
-import { TravelInfoContext } from "@/store/travelInfoContext";
 import { AnimatePresence } from "framer-motion";
 import { memo } from "react";
 import ModalPersonelPassengersContent from "./ModalPersonelPassengersContent";
+import { useDispatch, useSelector } from "react-redux";
+import { checksActions } from "@/store/checksSlice";
 
 // Renders buttons and modal
 
 const InputPersonel = memo(function InputPersonel() {
-  const { whichIsVisible, changeWhichIsVisible } =
-    useContext(TravelInfoContext);
+  const dispatch = useDispatch();
+  const whichIsVisible = useSelector((state) => state.checks.whichIsVisible);
 
   function handleClick() {
-    changeWhichIsVisible("personel");
+    dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE("personel"));
   }
   function handleClose() {
-    changeWhichIsVisible("");
+    dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE(""));
   }
 
   return (

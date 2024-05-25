@@ -1,12 +1,13 @@
-import { useContext } from "react";
 import classes from "./ListCityBlocks.module.css";
-import { TravelInfoContext } from "@/store/travelInfoContext";
 import ItemCityBlock from "./ItemCityBlock";
+import { useSelector } from "react-redux";
 
 // Lists 'fromInfo' or 'toInfo' depending on 'from' prop
 
 export default function ListCityBlocks({ from }) {
-  const { fromInfo, toInfo } = useContext(TravelInfoContext);
+  const fromInfo = useSelector((state) => state.form.fromInfo);
+  const toInfo = useSelector((state) => state.form.toInfo);
+
   if (from && fromInfo.length > 0) {
     return (
       <div className={classes.cities}>

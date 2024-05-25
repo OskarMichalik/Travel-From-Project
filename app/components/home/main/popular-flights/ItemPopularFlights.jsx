@@ -1,17 +1,33 @@
 "use client";
 import classes from "./ItemPopularFlights.module.css";
-import CITIES from "@/store/cities";
-import { TravelInfoContext } from "@/store/travelInfoContext";
+//import CITIES from "@/store/cities";
 import Image from "next/image";
-import { useContext } from "react";
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
+import { formInputActions } from "@/store/formInputSlice";
 
 export default function ItemPopularFlights({ cityFromId, cityToId }) {
-  const cityFrom = CITIES.filter((item) => item.id === cityFromId);
-  const cityTo = CITIES.filter((item) => item.id === cityToId);
-  const { fromInfo, toInfo, addFromTravelInfo, addToTravelInfo } =
-    useContext(TravelInfoContext);
+  const places = useSelector((state) => state.flights.cities);
+  const citiesAreLoading = useSelector(
+    (state) => state.checks.citiesAreLoading
+  );
 
+  const cityFrom = places.filter((item) => item.id === cityFromId);
+  const cityTo = places.filter((item) => item.id === cityToId);
+
+  const fromInfo = useSelector((state) => state.form.fromInfo);
+  const toInfo = useSelector((state) => state.form.toInfo);
+  const dispatch = useDispatch();
+
+  if (citiesAreLoading) {
+    return (
+      <div className={classes.itemPopularFlightsLoading}>
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
   const imageName = cityTo[0].name.replace(/ /g, "");
 
   const includesFromCity = fromInfo.includes(cityFrom[0]);
@@ -19,13 +35,12 @@ export default function ItemPopularFlights({ cityFromId, cityToId }) {
 
   function handleClick() {
     if (!includesFromCity) {
-      addFromTravelInfo(cityFrom[0]);
+      dispatch(formInputActions.ADD_FROM_TRAVEL_INFO(cityFrom[0]));
     }
     if (!includesToCity) {
-      addToTravelInfo(cityTo[0]);
+      dispatch(formInputActions.ADD_TO_TRAVEL_INFO(cityTo[0]));
     }
   }
-
   return (
     <motion.div
       className={classes.itemPopularFlights}

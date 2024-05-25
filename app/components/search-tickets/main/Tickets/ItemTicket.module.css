@@ -71,6 +71,8 @@
   height: 150px;
   overflow: hidden;
   border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 3px rgb(187, 187, 187);
 }
 .image img {
   width: 100%;

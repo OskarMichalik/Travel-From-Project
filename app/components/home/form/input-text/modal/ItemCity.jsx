@@ -1,8 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import { useContext } from "react";
 import classes from "./ItemCity.module.css";
-import { TravelInfoContext } from "@/store/travelInfoContext";
+import { useDispatch } from "react-redux";
+import { formInputActions } from "@/store/formInputSlice";
+import { useSelector } from "react-redux";
 
 // Renders single city
 
@@ -14,14 +15,10 @@ export default function ItemCity({
   setSearchValue,
   index,
 }) {
-  const {
-    fromInfo,
-    toInfo,
-    addFromTravelInfo,
-    addToTravelInfo,
-    removeFromTravelInfo,
-    removeToTravelInfo,
-  } = useContext(TravelInfoContext);
+  const dispatch = useDispatch();
+
+  const fromInfo = useSelector((state) => state.form.fromInfo);
+  const toInfo = useSelector((state) => state.form.toInfo);
 
   let includes;
   if (from) {
@@ -29,17 +26,16 @@ export default function ItemCity({
   } else {
     includes = toInfo.findIndex((item) => item.id === city.id);
   }
-
   function handleAddCity(event) {
     event.stopPropagation();
     if (from) {
-      addFromTravelInfo(city);
+      dispatch(formInputActions.ADD_FROM_TRAVEL_INFO(city));
       setSearchValue("");
       setTimeout(() => {
         inputRef.current.focus();
       }, 10);
     } else {
-      addToTravelInfo(city);
+      dispatch(formInputActions.ADD_TO_TRAVEL_INFO(city));
       setSearchValue("");
       setTimeout(() => {
         inputRef.current.focus();
@@ -48,20 +44,20 @@ export default function ItemCity({
   }
   function handleAddCityClose() {
     if (from) {
-      addFromTravelInfo(city);
+      dispatch(formInputActions.ADD_FROM_TRAVEL_INFO(city));
       onClose();
     } else {
-      addToTravelInfo(city);
+      dispatch(formInputActions.ADD_TO_TRAVEL_INFO(city));
       onClose();
     }
   }
 
   function handleRemoveCityClose() {
     if (from) {
-      removeFromTravelInfo(city.id);
+      dispatch(formInputActions.REMOVE_FROM_TRAVEL_INFO(city.id));
       onClose();
     } else {
-      removeToTravelInfo(city.id);
+      dispatch(formInputActions.REMOVE_TO_TRAVEL_INFO(city.id));
       onClose();
     }
   }
@@ -69,12 +65,14 @@ export default function ItemCity({
   function handleRemoveCity(event) {
     event.stopPropagation();
     if (from) {
-      removeFromTravelInfo(city.id);
+      dispatch(formInputActions.REMOVE_FROM_TRAVEL_INFO(city.id));
+      setSearchValue("");
       setTimeout(() => {
         inputRef.current.focus();
       }, 10);
     } else {
-      removeToTravelInfo(city.id);
+      dispatch(formInputActions.REMOVE_TO_TRAVEL_INFO(city.id));
+      setSearchValue("");
       setTimeout(() => {
         inputRef.current.focus();
       }, 10);

@@ -6,7 +6,13 @@ import { motion } from "framer-motion";
 
 // Renders the calendar inside the modal
 
-export default function ListDate({ value, onChange, minValue, departure }) {
+export default function ListDate({
+  value,
+  onChange,
+  minValue,
+  maxValue,
+  departure,
+}) {
   return (
     <motion.div
       className={classes.listDate}
@@ -18,6 +24,7 @@ export default function ListDate({ value, onChange, minValue, departure }) {
         onChange={onChange}
         value={value}
         minDate={minValue && !departure ? minValue : undefined}
+        maxDate={maxValue && departure ? maxValue : undefined}
       />
     </motion.div>
   );

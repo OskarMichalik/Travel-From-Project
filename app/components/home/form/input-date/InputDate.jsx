@@ -1,30 +1,29 @@
 "use client";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import classes from "./InputDate.module.css";
 import ButtonInputDate from "./ButtonInputDate";
 import Modal from "../Modal";
 import ListDate from "./ListDate";
-import { TravelInfoContext } from "@/store/travelInfoContext";
 import { AnimatePresence } from "framer-motion";
 import { memo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { checksActions } from "@/store/checksSlice";
+import { formInputActions } from "@/store/formInputSlice";
 
 // Renders the button and modal. The 'departure' prop decides if it's a button that changes 'departureInfo' (true) or 'returnInfo' (false)
 
 const InputDate = memo(function InputDate({ departure, searchTickets }) {
-  const {
-    departureInfo,
-    returnInfo,
-    dateIsEdited,
-    changeDepartureInfo,
-    changeReturnInfo,
-    changeDateIsEdited,
-  } = useContext(TravelInfoContext);
+  const departureInfo = useSelector((state) => state.form.departureInfo);
+  const returnInfo = useSelector((state) => state.form.returnInfo);
+  const dateIsEdited = useSelector((state) => state.checks.dateIsEdited);
+  const whichIsVisible = useSelector((state) => state.checks.whichIsVisible);
+  const dispatch = useDispatch();
 
   let defaultValue = new Date();
   if (departure && departureInfo) {
-    defaultValue = departureInfo;
+    defaultValue = new Date(departureInfo);
   } else if (returnInfo) {
-    defaultValue = returnInfo;
+    defaultValue = new Date(returnInfo);
   }
 
   const [value, onChange] = useState(defaultValue);
@@ -34,29 +33,28 @@ const InputDate = memo(function InputDate({ departure, searchTickets }) {
   const year = value.getFullYear();
   const date = day + "/" + month + "/" + year;
 
-  const { whichIsVisible, changeWhichIsVisible } =
-    useContext(TravelInfoContext);
-
   let whichNeedsToBeVisible = departure ? "departure" : "return";
 
   function handleClick() {
     if (departure) {
-      changeWhichIsVisible("departure");
+      dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE("departure"));
     } else {
-      changeWhichIsVisible("return");
+      dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE("return"));
     }
   }
   function handleClose() {
-    changeWhichIsVisible("");
+    dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE(""));
   }
   function handleChange(value) {
     onChange(value);
     if (departure) {
-      changeDepartureInfo(value);
-      changeDateIsEdited("departure");
+      dispatch(
+        formInputActions.CHANGE_DEPARTURE_TRAVEL_INFO(value.toISOString())
+      );
+      dispatch(checksActions.CHANGE_DATE_IS_EDITED("departure"));
     } else {
-      changeReturnInfo(value);
-      changeDateIsEdited("return");
+      dispatch(formInputActions.CHANGE_RETURN_TRAVEL_INFO(value.toISOString()));
+      dispatch(checksActions.CHANGE_DATE_IS_EDITED("return"));
     }
   }
 
@@ -80,7 +78,8 @@ const InputDate = memo(function InputDate({ departure, searchTickets }) {
                 <ListDate
                   value={value}
                   onChange={handleChange}
-                  minValue={departureInfo}
+                  minValue={departureInfo && new Date(departureInfo)}
+                  maxValue={returnInfo && new Date(returnInfo)}
                   departure={departure}
                 />
               </div>
