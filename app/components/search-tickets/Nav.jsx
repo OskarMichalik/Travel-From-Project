@@ -4,14 +4,19 @@ import InputDate from "../home/form/input-date/InputDate";
 import { useDispatch } from "react-redux";
 import { getCities, getFlights } from "@/store/actions";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export default function Nav() {
   const dispatch = useDispatch();
+  const flights = useSelector((state) => state.flights.flights);
 
   useEffect(() => {
-    dispatch(getCities());
-    dispatch(getFlights());
-  }, [dispatch]);
+    if (!flights.length > 0) {
+      dispatch(getCities());
+      dispatch(getFlights());
+      console.log("Fetching...");
+    }
+  }, [dispatch, flights]);
   return (
     <div className={classes.nav}>
       <div className={classes.bannerContent}>
