@@ -11,6 +11,7 @@ const checksSlice = createSlice({
     whichIsVisible: "",
     citiesAreLoading: true,
     popularFlightsAreLoading: true,
+    flightsAreLoading: true,
   },
   reducers: {
     CHANGE_DATE_IS_EDITED(state, action) {
@@ -28,6 +29,9 @@ const checksSlice = createSlice({
     },
     CHANGE_POPULARFLIGHTS_ARE_LOADING(state) {
       state.popularFlightsAreLoading = false;
+    },
+    CHANGE_FLIGHTS_ARE_LOADING(state) {
+      state.flightsAreLoading = false;
     },
   },
 });

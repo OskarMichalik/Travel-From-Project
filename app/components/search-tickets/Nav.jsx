@@ -2,7 +2,7 @@ import classes from "./Nav.module.css";
 import InputText from "../home/form/input-text/InputText";
 import InputDate from "../home/form/input-date/InputDate";
 import { useDispatch } from "react-redux";
-import { getCities } from "@/store/flightsActions";
+import { getCities, getFlights } from "@/store/actions";
 import { useEffect } from "react";
 
 export default function Nav() {
@@ -10,6 +10,7 @@ export default function Nav() {
 
   useEffect(() => {
     dispatch(getCities());
+    dispatch(getFlights());
   }, [dispatch]);
   return (
     <div className={classes.nav}>

@@ -6,7 +6,7 @@ import InputDate from "./input-date/InputDate";
 import InputPersonel from "./input-personel/InputPersonel";
 import SubmitButton from "./submit-button/SubmitButton";
 import { useDispatch } from "react-redux";
-import { getCities, getPopularFlights } from "@/store/flightsActions";
+import { getCities, getPopularFlights } from "@/store/actions";
 import { useEffect } from "react";
 
 export default function Form() {
