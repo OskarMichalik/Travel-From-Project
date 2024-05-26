@@ -1,5 +1,4 @@
 import "./globals.css";
-import TravelInfoContext from "@/store/travelInfoContext";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
@@ -14,7 +13,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <div className="header-space" />
-        <TravelInfoContext>{children}</TravelInfoContext>
+        {children}
         <Footer />
       </body>
     </html>

@@ -18,7 +18,8 @@
   flex-direction: row;
   align-items: center;
   font-size: 30px;
-  color: #028878;
+  /*color: #028878;*/
+  color: #0a2472;
   font-weight: 500;
 }
 .menuIcon {
@@ -29,7 +30,8 @@
   transition: all 0.2s ease-in-out;
 }
 .menuIcon svg:hover {
-  color: #028878;
+  /*color: #028878;*/
+  color: #0a2472;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }

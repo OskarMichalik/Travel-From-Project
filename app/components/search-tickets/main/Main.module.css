@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: #f4fffc;
+  /*background-color: #f4fffc;*/
+  background-color: #ecf7fc;
   width: 100%;
   padding-top: 25px;
 }

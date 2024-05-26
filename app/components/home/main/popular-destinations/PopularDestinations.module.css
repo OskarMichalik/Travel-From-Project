@@ -2,6 +2,11 @@
   width: 75%;
   margin: 0 auto;
 }
+.popularDestinationsLoading {
+  width: 75%;
+  margin: 0 auto;
+  padding-bottom: 500px;
+}
 .popularDestinations h1 {
   font-size: 30px;
 }

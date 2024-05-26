@@ -35,7 +35,7 @@ export default function PopularDestinations() {
   if (citiesAreLoading) {
     //Checks if cities are loading
     return (
-      <div className={classes.popularDestinations}>
+      <div className={classes.popularDestinationsLoading}>
         <h1>Popular destinations</h1>
         <p>Those places were picked just for you... </p>
         <div className="loading">
