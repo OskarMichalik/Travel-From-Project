@@ -1,4 +1,6 @@
+"use client";
 import classes from "./ButtonInputDate.module.css";
+import { useSelector } from "react-redux";
 
 // Renders the button
 
@@ -9,6 +11,9 @@ export default function ButtonInputDate({
   isEdited,
   isInModal,
 }) {
+  const citiesAreLoading = useSelector(
+    (state) => state.checks.citiesAreLoading
+  );
   return (
     <div
       className={isInModal ? classes.inputInModal : classes.input}
@@ -19,7 +24,7 @@ export default function ButtonInputDate({
       </div>
       <div className={classes.content}>
         <div className={classes.inputActive}>
-          {isEdited ? value : "Anytime"}
+          {citiesAreLoading ? "Loading..." : isEdited ? value : "Anytime"}
         </div>
       </div>
     </div>

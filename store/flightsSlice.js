@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const flightsSlice = createSlice({
   name: "flights",
-  initialState: { cities: [], popularFlights: [] },
+  initialState: { cities: [], flights: [], popularFlights: [] },
   reducers: {
     ADD_CITIES_BY_ARRAY(state, action) {
       const array = action.payload;
@@ -12,6 +12,10 @@ const flightsSlice = createSlice({
     ADD_POPULARFLIGHTS_BY_ARRAY(state, action) {
       const array = action.payload;
       state.popularFlights = array;
+    },
+    ADD_FLIGHTS_BY_ARRAY(state, action) {
+      const array = action.payload;
+      state.flights = array;
     },
   },
 });

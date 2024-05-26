@@ -45,11 +45,11 @@
   text-align: center;
   font-weight: 400;
 }
-.menuGitButton {
+.menuButtons {
   width: 50%;
   margin-top: 15px;
 }
-.menuGitButton button {
+.menuButtons button {
   width: 100%;
   background-color: #028878;
   color: white;
@@ -58,8 +58,9 @@
   padding-bottom: 10px;
   font-size: 25px;
   font-weight: 500;
+  margin-bottom: 5px;
 }
-.menuGitButton button:hover {
+.menuButtons button:hover {
   background-color: #00a991;
 }
 
