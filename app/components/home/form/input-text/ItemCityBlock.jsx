@@ -1,20 +1,19 @@
-import { useContext } from "react";
-import { TravelInfoContext } from "@/store/travelInfoContext";
 import classes from "./ItemCityBlock.module.css";
+import { useDispatch } from "react-redux";
+import { formInputActions } from "@/store/formInputSlice";
 
 // renders single block with the name
 
 export default function ItemCityBlock({ city, from }) {
-  const { removeFromTravelInfo, removeToTravelInfo } =
-    useContext(TravelInfoContext);
+  const dispatch = useDispatch();
 
   function handleRemoveFrom(event) {
     event.stopPropagation();
-    removeFromTravelInfo(city.id);
+    dispatch(formInputActions.REMOVE_FROM_TRAVEL_INFO(city.id));
   }
   function handleRemoveTo(event) {
     event.stopPropagation();
-    removeToTravelInfo(city.id);
+    dispatch(formInputActions.REMOVE_TO_TRAVEL_INFO(city.id));
   }
 
   return (

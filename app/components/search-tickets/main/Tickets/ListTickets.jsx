@@ -1,16 +1,26 @@
 import classes from "./ListTickets.module.css";
-import { useContext } from "react";
-import { TravelInfoContext } from "@/store/travelInfoContext";
-import FLIGHTS from "@/store/flights";
 import ItemTicket from "./ItemTicket";
+import { useSelector } from "react-redux";
 
 export default function ListTickets() {
-  const { fromInfo, toInfo } = useContext(TravelInfoContext);
+  const flightsAreLoading = useSelector(
+    (state) => state.checks.flightsAreLoading
+  );
+  const fromInfo = useSelector((state) => state.form.fromInfo);
+  const toInfo = useSelector((state) => state.form.toInfo);
+  const flights = useSelector((state) => state.flights.flights);
 
+  if (flightsAreLoading) {
+    return (
+      <div className="loading">
+        <p>Loading...</p>
+      </div>
+    );
+  }
   let availableFlightsFrom = [];
   let availableFlightsTo = [];
 
-  FLIGHTS.map((itemFlights) => {
+  flights.map((itemFlights) => {
     fromInfo.map((itemFrom) => {
       if (itemFlights.from === itemFrom.id) {
         availableFlightsFrom.push(itemFlights);

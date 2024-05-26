@@ -1,17 +1,20 @@
 "use client";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import classes from "./SubmitButton.module.css";
 import { motion } from "framer-motion";
-import { TravelInfoContext } from "@/store/travelInfoContext";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 
 // Renders the submit button. It's disabled if the user hasn't entered any information in the 'From', 'Departure', 'Return' fields
 
 export default function SubmitButton() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const { fromInfo, toInfo, departureInfo, returnInfo } =
-    useContext(TravelInfoContext);
+
+  const fromInfo = useSelector((state) => state.form.fromInfo);
+  const toInfo = useSelector((state) => state.form.fromInfo);
+  const departureInfo = useSelector((state) => state.form.fromInfo);
+  const returnInfo = useSelector((state) => state.form.returnInfo);
   return (
     <div className={classes.submitButtonDiv}>
       <div className={classes.submitButton}>

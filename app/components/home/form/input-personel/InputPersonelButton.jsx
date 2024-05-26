@@ -1,9 +1,9 @@
-import { useContext } from "react";
 import classes from "./InputPersonelButton.module.css";
-import { TravelInfoContext } from "@/store/travelInfoContext";
+import { useSelector } from "react-redux";
 
 export default function InputPersonelButton({ handleClick }) {
-  const { passengers, baggage } = useContext(TravelInfoContext);
+  const passengers = useSelector((state) => state.form.passengers);
+  const baggage = useSelector((state) => state.form.baggage);
 
   // Renders both the passengers button and the baggage button
 

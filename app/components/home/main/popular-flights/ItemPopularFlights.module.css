@@ -34,3 +34,14 @@
 .text {
   font-weight: 500;
 }
+.itemPopularFlightsLoading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  background-color: #ffffff;
+  height: 100px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgb(187, 187, 187);
+}

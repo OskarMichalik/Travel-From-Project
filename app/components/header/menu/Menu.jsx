@@ -53,12 +53,12 @@ export default function Menu({ onClose }) {
         >
           <div className={classes.menuDescription}>
             <p>
-              I am an aspiring programmer and I love learning about programming.
-              Please checkout more of my projects.
+              Hi I&apos;m Oskar. I am an aspiring programmer and I love learning
+              about programming. Please checkout more of my projects.
             </p>
           </div>
-          <div className={classes.menuGitButton}>
-            <Link href="https://github.com/OskarMichalik">
+          <div className={classes.menuButtons}>
+            <Link href="https://github.com/OskarMichalik" target="_blank">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -68,6 +68,18 @@ export default function Menu({ onClose }) {
                 }}
               >
                 GitHub
+              </motion.button>
+            </Link>
+            <Link href="mailto:oskar.michalik06@gmail.com">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 700,
+                }}
+              >
+                E-mail
               </motion.button>
             </Link>
           </div>
