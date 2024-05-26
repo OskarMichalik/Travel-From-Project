@@ -38,7 +38,7 @@ export function getCities() {
       dispatch(flightsActions.ADD_CITIES_BY_ARRAY(citiesData || []));
       dispatch(checksActions.CHANGE_CITIES_ARE_LOADING());
     } catch (error) {
-      throw new Error("Something went wrong!");
+      throw new Error(error);
     }
   };
 }
@@ -58,7 +58,7 @@ export function getPopularFlights() {
       );
       dispatch(checksActions.CHANGE_POPULARFLIGHTS_ARE_LOADING());
     } catch (error) {
-      throw new Error("Something went wrong!");
+      throw new Error(error);
     }
   };
 }
@@ -69,7 +69,6 @@ export function getFlights() {
     async function fetchData() {
       const data = await getDocs(collectionRef);
       const filteredData = data.docs.map((doc) => ({ ...doc.data() }));
-      console.log("test");
 
       return filteredData;
     }
@@ -78,7 +77,7 @@ export function getFlights() {
       dispatch(flightsActions.ADD_FLIGHTS_BY_ARRAY(flightsData || []));
       dispatch(checksActions.CHANGE_FLIGHTS_ARE_LOADING());
     } catch (error) {
-      throw new Error("Something went wrong!");
+      throw new Error(error);
     }
   };
 }

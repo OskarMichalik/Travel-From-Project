@@ -8,7 +8,8 @@
   margin-top: 5px;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #028878;
+  /* background-color: #028878;*/
+  background-color: #0a2472;
   color: white;
   font-weight: 500;
   font-size: 21px;
@@ -16,14 +17,15 @@
   z-index: 9;
 }
 .button:hover {
-  background-color: #00a991;
+  /*background-color: #00a991;*/
+  background-color: #0e6ba8;
 }
 .disabled {
   margin-right: 25px;
   margin-top: 5px;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #a6c5c0;
+  background-color: #91c0df;
   color: white;
   font-weight: 500;
   font-size: 21px;

@@ -28,7 +28,8 @@
 }
 .menuImage img {
   width: 30%;
-  background-color: #c8e2df;
+  /*background-color: #c8e2df;*/
+  background-color: #e4eaff;
   border-radius: 50%;
 }
 .menuText {
@@ -51,7 +52,8 @@
 }
 .menuButtons button {
   width: 100%;
-  background-color: #028878;
+  /* background-color: #028878;*/
+  background-color: #0a2472;
   color: white;
   border-radius: 5px;
   padding-top: 10px;
@@ -61,7 +63,8 @@
   margin-bottom: 5px;
 }
 .menuButtons button:hover {
-  background-color: #00a991;
+  /*background-color: #00a991;*/
+  background-color: #0e6ba8;
 }
 
 @media only screen and (max-width: 800px) {

@@ -10,7 +10,7 @@ export default function ListPopularFlights() {
 
   if (popularFlightsAreLoading) {
     return (
-      <div className={classes.listPopularFlights}>
+      <div className={classes.listPopularFlightsLoading}>
         <div className="loading">
           <p>Loading...</p>
         </div>
