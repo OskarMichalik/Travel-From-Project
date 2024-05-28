@@ -11,7 +11,7 @@ import { useEffect } from "react";
 
 export default function Form() {
   const dispatch = useDispatch();
-  const fromInfo = useSelector((state) => state.form.fromInfo);
+  const cities = useSelector((state) => state.flights.cities);
 
   useEffect(() => {
     if (!fromInfo.length > 0) {
@@ -19,7 +19,7 @@ export default function Form() {
       dispatch(getPopularFlights());
       console.log("Fetching...");
     }
-  }, [dispatch, fromInfo]);
+  }, [dispatch, cities]);
 
   return (
     <div className={classes.banner}>
