@@ -8,15 +8,19 @@ import { useSelector } from "react-redux";
 
 export default function Nav() {
   const dispatch = useDispatch();
+  const flights = useSelector((state) => state.flights.flights);
   const cities = useSelector((state) => state.flights.cities);
 
   useEffect(() => {
+    if (!flights.length > 0) {
+      dispatch(getFlights());
+      console.log("Fetching flights...");
+    }
     if (!cities.length > 0) {
       dispatch(getCities());
-      dispatch(getFlights());
-      console.log("Fetching...");
+      console.log("Fetching cities...");
     }
-  }, [dispatch, cities]);
+  }, [dispatch, cities, flights]);
   return (
     <div className={classes.nav}>
       <div className={classes.bannerContent}>

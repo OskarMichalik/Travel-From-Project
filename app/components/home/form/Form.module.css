@@ -5,7 +5,8 @@
   /*background-color: #0a2472;*/
   background-color: #0d2f96;
   opacity: 1;
-  background-image: radial-gradient(#001c55 2px, #0d2f96 2px);
+  /*background-image: radial-gradient(#001c55 2px, #0d2f96 2px);*/
+  background-image: radial-gradient(#052b77 2px, #28459c 2px);
   background-size: 40px 40px;
   padding-top: 50px;
 }
