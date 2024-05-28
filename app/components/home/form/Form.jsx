@@ -14,7 +14,7 @@ export default function Form() {
   const cities = useSelector((state) => state.flights.cities);
 
   useEffect(() => {
-    if (!fromInfo.length > 0) {
+    if (!cities.length > 0) {
       dispatch(getCities());
       dispatch(getPopularFlights());
       console.log("Fetching...");
