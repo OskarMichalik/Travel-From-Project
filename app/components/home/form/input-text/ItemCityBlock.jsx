@@ -32,7 +32,7 @@ export default function ItemCityBlock({ city, from }) {
             viewBox="0 0 45.402 45.402"
             xmlSpace="preserve"
             stroke="#f9971e"
-            transform="rotate(45)"
+            //transform="rotate(45.01 0 0)"
           >
             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
@@ -63,7 +63,7 @@ export default function ItemCityBlock({ city, from }) {
             viewBox="0 0 45.402 45.402"
             xmlSpace="preserve"
             stroke="#00a991"
-            transform="rotate(45)"
+            //transform="rotate(45.01 0 0)"
           >
             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
