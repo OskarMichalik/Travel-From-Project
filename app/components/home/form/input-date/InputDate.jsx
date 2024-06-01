@@ -60,9 +60,11 @@ const InputDate = memo(function InputDate({
         formInputActions.CHANGE_DEPARTURE_TRAVEL_INFO(value.toISOString())
       );
       dispatch(checksActions.CHANGE_DATE_IS_EDITED("departure"));
+      dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE("return"));
     } else {
       dispatch(formInputActions.CHANGE_RETURN_TRAVEL_INFO(value.toISOString()));
       dispatch(checksActions.CHANGE_DATE_IS_EDITED("return"));
+      dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE(""));
     }
   }
 
