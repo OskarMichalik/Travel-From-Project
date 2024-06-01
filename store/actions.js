@@ -2,6 +2,9 @@
 import { flightsActions } from "./flightsSlice";
 import { checksActions } from "./checksSlice";
 import { db } from "@/firebase";
+import CITIES from "./static/cities";
+import POPULAR_FLIGHTS from "./static/popularFlights";
+import FLIGHTS_FULL from "./static/flightsFull";
 import {
   getDocs,
   collection,
@@ -38,7 +41,11 @@ export function getCities() {
       dispatch(flightsActions.ADD_CITIES_BY_ARRAY(citiesData || []));
       dispatch(checksActions.CHANGE_CITIES_ARE_LOADING());
     } catch (error) {
-      throw new Error(error);
+      //throw new Error(error);
+      console.log(error);
+      console.log("Using static data...");
+      dispatch(flightsActions.ADD_CITIES_BY_ARRAY(CITIES));
+      dispatch(checksActions.CHANGE_CITIES_ARE_LOADING());
     }
   };
 }
@@ -52,13 +59,17 @@ export function getPopularFlights() {
       return filteredData;
     }
     try {
-      const pupularFlightsData = await fetchData();
+      const popularFlightsData = await fetchData();
       dispatch(
-        flightsActions.ADD_POPULARFLIGHTS_BY_ARRAY(pupularFlightsData || [])
+        flightsActions.ADD_POPULARFLIGHTS_BY_ARRAY(popularFlightsData || [])
       );
       dispatch(checksActions.CHANGE_POPULARFLIGHTS_ARE_LOADING());
     } catch (error) {
-      throw new Error(error);
+      //throw new Error(error);
+      console.log(error);
+      console.log("Using static data...");
+      dispatch(flightsActions.ADD_POPULARFLIGHTS_BY_ARRAY(POPULAR_FLIGHTS));
+      dispatch(checksActions.CHANGE_POPULARFLIGHTS_ARE_LOADING());
     }
   };
 }
@@ -77,7 +88,11 @@ export function getFlights() {
       dispatch(flightsActions.ADD_FLIGHTS_BY_ARRAY(flightsData || []));
       dispatch(checksActions.CHANGE_FLIGHTS_ARE_LOADING());
     } catch (error) {
-      throw new Error(error);
+      //throw new Error(error);
+      console.log(error);
+      console.log("Using static data...");
+      dispatch(flightsActions.ADD_FLIGHTS_BY_ARRAY(FLIGHTS_FULL));
+      dispatch(checksActions.CHANGE_FLIGHTS_ARE_LOADING());
     }
   };
 }

@@ -27,6 +27,17 @@ Nav:
 
     Allows you to change the information.
 
+Map:
+
+    Pins selected locations and shows possible flight path
+
+Sorting menu:
+
+    Allows the user to sort flights according to ther preferences. You can choose:
+    -Cheapest: Lists the flights from the cheapest to the most expensive
+    -Fastest: Lists the flights from the quickest to the longest
+    -Best: A combination of the cheapest and fastest options
+
 Ticket list:
 
     Displays found flights, based on the provided cities ( date does not affect the result )

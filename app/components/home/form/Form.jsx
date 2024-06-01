@@ -12,14 +12,18 @@ import { useEffect } from "react";
 export default function Form() {
   const dispatch = useDispatch();
   const cities = useSelector((state) => state.flights.cities);
+  const popularFlights = useSelector((state) => state.flights.popularFlights);
 
   useEffect(() => {
     if (!cities.length > 0) {
       dispatch(getCities());
-      dispatch(getPopularFlights());
-      console.log("Fetching...");
+      console.log("Fetching Cities...");
     }
-  }, [dispatch, cities]);
+    if (!popularFlights.length > 0) {
+      dispatch(getPopularFlights());
+      console.log("Fetching Popular cities...");
+    }
+  }, [dispatch, cities, popularFlights]);
 
   return (
     <div className={classes.banner}>

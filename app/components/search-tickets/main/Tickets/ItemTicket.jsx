@@ -49,16 +49,21 @@ export default function ItemTicket({ flight, index }) {
       </div>
       <div className={classes.flightInfo}>
         <div className={classes.dateInfo}>13/5/2024 5:00PM</div>
-        <div className={classes.fromToInfo}>
-          {cityFrom.name}
-          <svg
-            className="orbit-icon inline-block shrink-0 fill-current align-middle size-icon-medium"
-            viewBox="0 0 24 24"
-            preserveAspectRatio="xMidYMid meet"
-          >
-            <path d="m8.746 16.089 4.23-3.825.029-.03a.4.4 0 0 0-.03-.565l-4.18-3.753a.904.904 0 0 1-.07-1.275.898.898 0 0 1 1.27-.07l5.257 4.72c.398.358.399.983.002 1.342L9.952 17.43a.898.898 0 0 1-1.271-.066.904.904 0 0 1 .065-1.274Z"></path>
-          </svg>
-          {cityTo.name}
+        <div className={classes.fromToInfoAndTime}>
+          <div className={classes.fromToInfo}>
+            <span className={classes.fromCity}>{cityFrom.name}</span>
+            <svg
+              className="orbit-icon inline-block shrink-0 fill-current align-middle size-icon-medium"
+              viewBox="0 0 24 24"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <path d="m8.746 16.089 4.23-3.825.029-.03a.4.4 0 0 0-.03-.565l-4.18-3.753a.904.904 0 0 1-.07-1.275.898.898 0 0 1 1.27-.07l5.257 4.72c.398.358.399.983.002 1.342L9.952 17.43a.898.898 0 0 1-1.271-.066.904.904 0 0 1 .065-1.274Z"></path>
+            </svg>
+            <span className={classes.toCity}>{cityTo.name}</span>
+          </div>
+          <div className={classes.timeInfo}>
+            {flight.travelTimeHours}h {flight.travelTimeMinutes}m
+          </div>
         </div>
 
         <div className={classes.baggageInfo}>
