@@ -9,10 +9,18 @@ import { checksActions } from "@/store/checksSlice";
 
 // Renders a button and modal. The 'from' prop decides if it's a button that changes 'fromInfo' (true) or 'toInfo' (false)
 
-export default function InputText({ from, searchTickets }) {
+export default function InputText({
+  from,
+  searchTickets,
+  wasSubmitted,
+  setWasSubmitted,
+}) {
   const [searchValue, setSearchValue] = useState("");
   const [isEdited, setIsEdited] = useState(false);
   const inputRef = useRef();
+
+  const fromInfo = useSelector((state) => state.form.fromInfo);
+  const toInfo = useSelector((state) => state.form.toInfo);
 
   const dispatch = useDispatch();
   const whichIsVisible = useSelector((state) => state.checks.whichIsVisible);
@@ -22,7 +30,17 @@ export default function InputText({ from, searchTickets }) {
 
   let whichNeedsToBeVisible = from ? "from" : "to";
 
+  let submitIsWrong = false;
+  if (from && wasSubmitted && !fromInfo.length > 0) {
+    submitIsWrong = true;
+  } else if (!from && wasSubmitted && !toInfo.length > 0) {
+    submitIsWrong = true;
+  }
+
   function handleClick() {
+    if (wasSubmitted) {
+      setWasSubmitted(false);
+    }
     if (from) {
       dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE("from"));
     } else {
@@ -55,7 +73,10 @@ export default function InputText({ from, searchTickets }) {
           />
         )}
       </AnimatePresence>
-      <div className={classes.input} onClick={handleClick}>
+      <div
+        className={submitIsWrong ? classes.inputSubmitWrong : classes.input}
+        onClick={handleClick}
+      >
         <div className={classes.spanText}>{from ? "From" : "To"}</div>
         <div className={classes.content}>
           <ListCityBlocks from={from ? true : false} />

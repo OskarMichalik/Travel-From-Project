@@ -16,6 +16,20 @@
   position: relative;
   z-index: 9;
 }
+.inputSubmitWrong {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #ff4c4c;
+  padding: 5px;
+  width: 90%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+  z-index: 9;
+}
 .spanText {
   color: #808080;
   padding-right: 10px;

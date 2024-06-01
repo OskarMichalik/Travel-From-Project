@@ -10,9 +10,10 @@ export default function Nav() {
   const dispatch = useDispatch();
   const flights = useSelector((state) => state.flights.flights);
   const cities = useSelector((state) => state.flights.cities);
+  const fromInfo = useSelector((state) => state.form.fromInfo);
 
   useEffect(() => {
-    if (!flights.length > 0) {
+    if (!flights.length > 0 && fromInfo.length > 0) {
       dispatch(getFlights());
       console.log("Fetching flights...");
     }
@@ -20,7 +21,7 @@ export default function Nav() {
       dispatch(getCities());
       console.log("Fetching cities...");
     }
-  }, [dispatch, cities, flights]);
+  }, [dispatch, cities, flights, fromInfo]);
   return (
     <div className={classes.nav}>
       <div className={classes.bannerContent}>

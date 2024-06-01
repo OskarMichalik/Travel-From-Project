@@ -12,7 +12,12 @@ import { formInputActions } from "@/store/formInputSlice";
 
 // Renders the button and modal. The 'departure' prop decides if it's a button that changes 'departureInfo' (true) or 'returnInfo' (false)
 
-const InputDate = memo(function InputDate({ departure, searchTickets }) {
+const InputDate = memo(function InputDate({
+  departure,
+  searchTickets,
+  wasSubmitted,
+  setWasSubmitted,
+}) {
   const departureInfo = useSelector((state) => state.form.departureInfo);
   const returnInfo = useSelector((state) => state.form.returnInfo);
   const dateIsEdited = useSelector((state) => state.checks.dateIsEdited);
@@ -36,6 +41,9 @@ const InputDate = memo(function InputDate({ departure, searchTickets }) {
   let whichNeedsToBeVisible = departure ? "departure" : "return";
 
   function handleClick() {
+    if (wasSubmitted) {
+      setWasSubmitted(false);
+    }
     if (departure) {
       dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE("departure"));
     } else {
@@ -91,6 +99,7 @@ const InputDate = memo(function InputDate({ departure, searchTickets }) {
         handleClick={handleClick}
         departure={departure}
         value={date}
+        wasSubmitted={wasSubmitted}
         isEdited={
           departure
             ? dateIsEdited.departureIsEdited

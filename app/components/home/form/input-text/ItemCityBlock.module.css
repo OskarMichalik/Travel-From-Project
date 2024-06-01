@@ -25,6 +25,8 @@
 .deleteIcon {
   background-color: #ffffffbb;
   border-radius: 50%;
+  transform: rotate(45deg);
+  will-change: transform;
 }
 .deleteIcon svg {
   width: 15px;
