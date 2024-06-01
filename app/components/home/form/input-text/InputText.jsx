@@ -50,8 +50,14 @@ export default function InputText({
       inputRef.current.focus();
     }, 10);
   }
-  function handleClose() {
-    dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE(""));
+  function handleClose(value) {
+    if (from && value === "changeInput") {
+      dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE("to"));
+    } else if (value === "changeInput") {
+      dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE("departure"));
+    } else {
+      dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE(""));
+    }
   }
   function handleInputChange(event) {
     setSearchValue(event.target.value);

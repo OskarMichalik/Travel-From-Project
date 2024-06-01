@@ -36,7 +36,7 @@ export default function InputTextModal({
         <ListCities
           searchValue={searchValue}
           from={from}
-          itemCityOnClose={handleClose}
+          itemCityOnClose={() => handleClose("changeInput")}
           inputRef={inputRef}
           itemCitySetSearchValue={listCitiesSetSearchValue}
         />
