@@ -1,0 +1,85 @@
+.sortingDiv {
+  margin-top: 25px;
+  border-radius: 5px;
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  user-select: none;
+}
+.cheapestSortDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 15px;
+  border-bottom-left-radius: 5px;
+  height: 100%;
+  width: 33%;
+  border-bottom: 3px solid #0a247200;
+}
+.cheapestSortDivOn {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 15px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  height: 100%;
+  width: 33%;
+}
+.fastestSortDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 15px;
+  height: 100%;
+  width: 34%;
+  border-bottom: 3px solid #0a247200;
+}
+.fastestSortDivOn {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 15px;
+  height: 100%;
+  width: 34%;
+}
+.bestSortDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 15px;
+  border-bottom-right-radius: 5px;
+  height: 100%;
+  width: 33%;
+  border-bottom: 3px solid #0a247200;
+}
+.bestSortDivOn {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 15px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 100%;
+  width: 33%;
+}
+.cheapestSortDivOn h3,
+.cheapestSortDiv h3,
+.fastestSortDivOn h3,
+.fastestSortDiv h3,
+.bestSortDivOn h3,
+.bestSortDiv h3 {
+  font-weight: 500;
+  font-size: 20px;
+}
+.cheapestSortDivOn p,
+.cheapestSortDiv p,
+.fastestSortDivOn p,
+.fastestSortDiv p,
+.bestSortDivOn p,
+.bestSortDiv p {
+  color: #808080;
+}

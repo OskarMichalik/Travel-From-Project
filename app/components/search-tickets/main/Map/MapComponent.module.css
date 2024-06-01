@@ -1,0 +1,9 @@
+.mapDiv {
+  height: 99%;
+  width: 99%;
+}
+.mapDiv div {
+  /*border-radius: 15px;*/
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
