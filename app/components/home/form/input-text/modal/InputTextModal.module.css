@@ -7,11 +7,18 @@
   box-shadow: 0 0 0 1px lightgrey;
   padding: 5px;
   width: 90%;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  overflow-x: scroll;
   scroll-behavior: smooth;
   position: relative;
   z-index: 9;
   background-color: white;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.input::-webkit-scrollbar {
+  display: none;
 }
 .spanText {
   color: #808080;
