@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 // Renders the submit button. It's disabled if the user hasn't entered any information in the 'From', 'Departure', 'Return' fields
 
-export default function SubmitButton() {
+export default function SubmitButton({ setWasSubmitted }) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -30,14 +30,18 @@ export default function SubmitButton() {
               ? classes.disabled
               : classes.button
           }
-          disabled={
-            fromInfo.length === 0 || departureInfo === "" || returnInfo === ""
-              ? true
-              : false
-          }
           onClick={() => {
-            setIsLoading(true);
-            router.push("/search-tickets");
+            if (
+              fromInfo.length === 0 ||
+              departureInfo === "" ||
+              returnInfo === ""
+            ) {
+              setWasSubmitted(true);
+            } else {
+              setWasSubmitted(true);
+              setIsLoading(true);
+              router.push("/search-tickets");
+            }
           }}
         >
           {isLoading ? "Loading..." : toInfo.length > 0 ? "Search" : "Explore"}

@@ -10,13 +10,20 @@ export default function ButtonInputDate({
   value,
   isEdited,
   isInModal,
+  wasSubmitted,
 }) {
   const citiesAreLoading = useSelector(
     (state) => state.checks.citiesAreLoading
   );
   return (
     <div
-      className={isInModal ? classes.inputInModal : classes.input}
+      className={
+        isInModal
+          ? classes.inputInModal
+          : wasSubmitted && !isEdited
+          ? classes.inputSubmitWrong
+          : classes.input
+      }
       onClick={handleClick}
     >
       <div className={classes.spanText}>

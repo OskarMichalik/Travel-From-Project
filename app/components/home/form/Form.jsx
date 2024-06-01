@@ -7,12 +7,14 @@ import InputPersonel from "./input-personel/InputPersonel";
 import SubmitButton from "./submit-button/SubmitButton";
 import { useDispatch, useSelector } from "react-redux";
 import { getCities, getPopularFlights } from "@/store/actions";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Form() {
   const dispatch = useDispatch();
   const cities = useSelector((state) => state.flights.cities);
   const popularFlights = useSelector((state) => state.flights.popularFlights);
+
+  const [wasSubmitted, setWasSubmitted] = useState(false);
 
   useEffect(() => {
     if (!cities.length > 0) {
@@ -32,12 +34,26 @@ export default function Form() {
         <div className={classes.flightForm}>
           <InputPersonel />
           <div className={classes.pathDateInfo}>
-            <InputText from />
-            <InputText />
-            <InputDate departure />
-            <InputDate />
+            <InputText
+              from
+              wasSubmitted={wasSubmitted}
+              setWasSubmitted={setWasSubmitted}
+            />
+            <InputText
+              wasSubmitted={wasSubmitted}
+              setWasSubmitted={setWasSubmitted}
+            />
+            <InputDate
+              departure
+              wasSubmitted={wasSubmitted}
+              setWasSubmitted={setWasSubmitted}
+            />
+            <InputDate
+              wasSubmitted={wasSubmitted}
+              setWasSubmitted={setWasSubmitted}
+            />
           </div>
-          <SubmitButton />
+          <SubmitButton setWasSubmitted={setWasSubmitted} />
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgb(187, 187, 187);
   cursor: pointer;
+  user-select: none;
 }
 .itemPopularFlights svg {
   width: 15px;
