@@ -7,7 +7,7 @@ import InputTextModal from "./modal/InputTextModal";
 import { useDispatch, useSelector } from "react-redux";
 import { checksActions } from "@/store/checksSlice";
 
-// Renders a button and modal. The 'from' prop decides if it's a button that changes 'fromInfo' (true) or 'toInfo' (false)
+// Renders a button and modal. The 'from' prop decides if it's a button that changes 'fromInfo' (true) or 'toInfo' (false), hops into another input after closing it
 
 export default function InputText({
   from,
