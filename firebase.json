@@ -1,12 +1,12 @@
 {
   "hosting": {
     "public": "out",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
+      {
+        "source": "/search-tickets",
+        "destination": "/search-tickets.html"
+      },
       {
         "source": "**",
         "destination": "/index.html"
