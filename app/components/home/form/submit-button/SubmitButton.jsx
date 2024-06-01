@@ -3,7 +3,8 @@ import { useState } from "react";
 import classes from "./SubmitButton.module.css";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { checksActions } from "@/store/checksSlice";
 
 // Renders the submit button. It's disabled if the user hasn't entered any information in the 'From', 'Departure', 'Return' fields
 
@@ -15,6 +16,9 @@ export default function SubmitButton({ setWasSubmitted }) {
   const toInfo = useSelector((state) => state.form.fromInfo);
   const departureInfo = useSelector((state) => state.form.fromInfo);
   const returnInfo = useSelector((state) => state.form.returnInfo);
+
+  const dispatch = useDispatch();
+
   return (
     <div className={classes.submitButtonDiv}>
       <div className={classes.submitButton}>
@@ -37,10 +41,11 @@ export default function SubmitButton({ setWasSubmitted }) {
               returnInfo === ""
             ) {
               setWasSubmitted(true);
+              dispatch(checksActions.CHANGE_WHICH_IS_VISIBLE(""));
             } else {
               setWasSubmitted(true);
               setIsLoading(true);
-              router.push("/search-tickets");
+              router.replace("/search-tickets");
             }
           }}
         >
