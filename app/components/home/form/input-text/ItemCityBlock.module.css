@@ -9,6 +9,8 @@
   align-items: center;
   border-radius: 5px;
   text-wrap: nowrap;
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 .itemPlaceTo {
   padding: 5px;
@@ -21,6 +23,8 @@
   align-items: center;
   border-radius: 5px;
   text-wrap: nowrap;
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 .deleteIcon {
   background-color: #ffffffbb;
