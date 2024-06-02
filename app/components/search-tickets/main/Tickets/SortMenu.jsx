@@ -16,7 +16,11 @@ export default function SortMenu({
   baggage,
 }) {
   return (
-    <div className={classes.sortingDiv}>
+    <motion.div
+      className={classes.sortingDiv}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
       <motion.div
         className={
           isSorted === "cheapest"
@@ -33,9 +37,19 @@ export default function SortMenu({
       >
         <motion.h3
           {...(isSorted === "cheapest"
-            ? { animate: { color: "#31459C" } }
+            ? {
+                animate: {
+                  color: "#31459C",
+                  textDecorationLine: "underline",
+                  textDecorationColor: "#31459C55",
+                },
+              }
             : {
-                animate: { color: "#000000" },
+                animate: {
+                  color: "#000000",
+                  textDecorationLine: "none",
+                  textDecorationColor: "#31459C00",
+                },
               })}
         >
           Cheapest
@@ -65,9 +79,19 @@ export default function SortMenu({
       >
         <motion.h3
           {...(isSorted === "fastest"
-            ? { animate: { color: "#31459C" } }
+            ? {
+                animate: {
+                  color: "#31459C",
+                  textDecorationLine: "underline",
+                  textDecorationColor: "#31459C55",
+                },
+              }
             : {
-                animate: { color: "#000000" },
+                animate: {
+                  color: "#000000",
+                  textDecorationLine: "none",
+                  textDecorationColor: "#31459C00",
+                },
               })}
         >
           Fastest
@@ -95,9 +119,19 @@ export default function SortMenu({
       >
         <motion.h3
           {...(isSorted === "best"
-            ? { animate: { color: "#31459C" } }
+            ? {
+                animate: {
+                  color: "#31459C",
+                  textDecorationLine: "underline",
+                  textDecorationColor: "#31459C55",
+                },
+              }
             : {
-                animate: { color: "#000000" },
+                animate: {
+                  color: "#000000",
+                  textDecorationLine: "none",
+                  textDecorationColor: "#31459C00",
+                },
               })}
         >
           Best
@@ -111,6 +145,6 @@ export default function SortMenu({
           )}
         </p>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

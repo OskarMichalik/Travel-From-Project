@@ -7,6 +7,7 @@ import { useState } from "react";
 import { calculateDistance } from "@/app/util/locationFn";
 import SortMenu from "./SortMenu";
 import ListSortedTickets from "./ListSortedTickets";
+import { motion } from "framer-motion";
 
 export default function ListTickets() {
   const flightsAreLoading = useSelector(
@@ -99,15 +100,21 @@ export default function ListTickets() {
   ];
   return (
     <div className={classes.ticketsDiv}>
-      <MapMenu>
-        <APIProvider apiKey={process.env.API_KEY}>
-          <MapComponent
-            defaultCenter={defaultCenter}
-            places={places}
-            availableFlights={availableFlights}
-          />
-        </APIProvider>
-      </MapMenu>
+      <motion.div
+        className={classes.mapDiv}
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <MapMenu>
+          <APIProvider apiKey={process.env.API_KEY}>
+            <MapComponent
+              defaultCenter={defaultCenter}
+              places={places}
+              availableFlights={availableFlights}
+            />
+          </APIProvider>
+        </MapMenu>
+      </motion.div>
       <SortMenu
         isSorted={isSorted}
         toggleSort={toggleSort}

@@ -10,3 +10,6 @@
   flex-direction: column;
   align-items: center;
 }
+.mapDiv {
+  width: 100%;
+}

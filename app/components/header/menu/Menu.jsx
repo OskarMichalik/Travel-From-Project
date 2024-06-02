@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import classes from "./Menu.module.css";
 import Image from "next/image";
 import meIcon from "@/public/meIcon.png";
@@ -31,9 +31,9 @@ export default function Menu({ onClose }) {
       >
         <motion.div
           className={classes.menuImage}
-          initial={{ x: -150 }}
+          initial={{ x: 150 }}
           animate={{ x: 0 }}
-          exit={{ x: -150 }}
+          exit={{ x: 150 }}
           transition={{
             type: "spring",
             bounce: 0.05,
@@ -43,9 +43,9 @@ export default function Menu({ onClose }) {
         </motion.div>
         <motion.div
           className={classes.menuText}
-          initial={{ x: -150 }}
+          initial={{ x: 150 }}
           animate={{ x: 0 }}
-          exit={{ x: -150 }}
+          exit={{ x: 150 }}
           transition={{
             type: "spring",
             bounce: 0.05,
