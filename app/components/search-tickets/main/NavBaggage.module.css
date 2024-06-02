@@ -16,3 +16,11 @@
     margin-bottom: 25px;
   }
 }
+
+@media only screen and (min-width: 1152px) {
+  .baggage {
+    position: -webkit-sticky; /* Safari & IE */
+    position: sticky;
+    top: 75px;
+  }
+}

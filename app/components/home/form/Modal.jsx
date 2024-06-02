@@ -8,11 +8,13 @@ export default function Modal({
   modalDate,
   modalPassengers,
   searchTickets,
+  onKeyDown,
 }) {
   return (
     <div>
       <div className={classes.backdrop} onClick={onClose} />
       <motion.dialog
+        onKeyDown={onKeyDown}
         open
         className={
           searchTickets && modalDate
