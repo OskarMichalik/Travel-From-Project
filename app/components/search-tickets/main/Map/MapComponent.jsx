@@ -96,7 +96,7 @@ export default function MapComponent({
         mapId={process.env.MAP_ID}
         defaultCenter={defaultCenter}
         disableDefaultUI={true}
-        gestureHandling={"greedy"}
+        gestureHandling={"cooperative"}
       >
         {pinFromLocation.map((pin, index) => (
           <AdvancedMarker key={index} position={{ lat: pin.lat, lng: pin.lng }}>
