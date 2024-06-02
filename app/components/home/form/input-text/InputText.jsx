@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import InputTextModal from "./modal/InputTextModal";
 import { useDispatch, useSelector } from "react-redux";
 import { checksActions } from "@/store/checksSlice";
+import { useEffect } from "react";
 
 // Renders a button and modal. The 'from' prop decides if it's a button that changes 'fromInfo' (true) or 'toInfo' (false), hops into another input after closing it
 
@@ -21,6 +22,8 @@ export default function InputText({
 
   const fromInfo = useSelector((state) => state.form.fromInfo);
   const toInfo = useSelector((state) => state.form.toInfo);
+
+  const scrollRef = useRef(null);
 
   const dispatch = useDispatch();
   const whichIsVisible = useSelector((state) => state.checks.whichIsVisible);
@@ -64,6 +67,59 @@ export default function InputText({
     setIsEdited(true);
   }
 
+  // Handle drag to scroll
+  useEffect(() => {
+    const el = scrollRef.current;
+    let isDragging = false;
+    let startX, scrollLeft, velocity, rafId;
+
+    const handleMouseDown = (e) => {
+      isDragging = true;
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+      velocity = 0;
+      el.style.cursor = "grabbing";
+      rafId = requestAnimationFrame(updateScroll);
+    };
+
+    const handleMouseLeaveOrUp = () => {
+      isDragging = false;
+      el.style.cursor = "pointer";
+      cancelAnimationFrame(rafId);
+    };
+
+    const handleMouseMove = (e) => {
+      if (!isDragging) return;
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startX) * 1.3; // Increase the multiplier for faster scrolling
+      el.scrollLeft = scrollLeft - walk;
+      velocity = walk;
+    };
+
+    const updateScroll = () => {
+      if (!isDragging) {
+        el.scrollLeft += velocity;
+        velocity *= 0.95; // Damping effect
+        if (Math.abs(velocity) > 0.5) {
+          rafId = requestAnimationFrame(updateScroll);
+        }
+      }
+    };
+
+    el.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseLeaveOrUp);
+    el.addEventListener("mouseleave", handleMouseLeaveOrUp);
+    el.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      el.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseLeaveOrUp);
+      el.removeEventListener("mouseleave", handleMouseLeaveOrUp);
+      el.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
     <div className={classes.inputText}>
       <AnimatePresence>
@@ -82,6 +138,7 @@ export default function InputText({
       <div
         className={submitIsWrong ? classes.inputSubmitWrong : classes.input}
         onClick={handleClick}
+        ref={scrollRef}
       >
         <div className={classes.spanText}>{from ? "From" : "To"}</div>
         <div className={classes.content}>
